@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace STDiag
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : System.Windows.Forms.Form
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
         }
