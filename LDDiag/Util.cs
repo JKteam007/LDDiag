@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace STDiag
+namespace LDDiag
 {
     class Util
-    {
+    
+
     }
 }

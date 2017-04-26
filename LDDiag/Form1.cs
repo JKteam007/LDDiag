@@ -108,5 +108,10 @@ namespace STDiag
         {
 
         }
+
+        private void mainChanges_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
