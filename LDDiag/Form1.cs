@@ -33,9 +33,6 @@ namespace STDiag
                 ldhome = System.Environment.CurrentDirectory;
             }
 
-            
-            logLocationTextBox.Text = ldhome + "log";
-
             openSCN.InitialDirectory = ldhome + "ldscan\\ErrorScans";
 
         }
@@ -63,20 +60,6 @@ namespace STDiag
         private void MainWindow_Load(object sender, EventArgs e)
         {
 
-        }
-
-      
-
-        private void proxyOverrideCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            proxyPasswordTextBox.ReadOnly = !proxyPasswordTextBox.ReadOnly;
-            proxyAddressTextBox.ReadOnly = !proxyAddressTextBox.ReadOnly;
-
-            if(proxyOverrideCheckBox.Checked == false)
-            {
-                proxyPasswordTextBox.Text = "";
-                proxyAddressTextBox.Text = "";
-            }
         }
 
         private void TabMenu_SelectedIndexChanged(object sender, EventArgs e)
