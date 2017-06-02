@@ -1,3 +1,3 @@
 # LDDiag
 
-LDDiag is a fully features diagnostic tool for Ivanti EndPoint Manager/Landesk Management Suite
+LDDiag is a fully featured diagnostic tool for Ivanti EndPoint Manager/Landesk Management Suite
