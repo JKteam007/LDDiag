@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>510</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>UpdateManager
+--
+gg
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>680</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ConfigDiag
+--
+gg
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>510</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>InventoryChecker
+--
+gg
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>120</y>
+      <w>370</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>DatamartChecker
+--
+CompareToSCN
+--
+UpdateDatamart
+--
+CommitToDB
+--
+GetSCNFromEventVwr
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>680</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Util
+--
+gg
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>120</y>
+      <w>410</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>AppManager
+--
+RunDatamartManager
+-string datamartPath, scnPath, option
+-boolean doBackup, doRestart, doValidate
+--
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>510</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ConfigChecker
+--
+gg
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>120</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;80.0;10.0;80.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>

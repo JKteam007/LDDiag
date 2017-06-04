@@ -37,6 +37,13 @@ namespace STDiag
 
         }
 
+        public void updateDMLogBox(string message)
+        {
+            message = message + System.Environment.NewLine;
+
+            dmLogBox.AppendText(message);
+        }
+
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
@@ -93,6 +100,28 @@ namespace STDiag
         }
 
         private void mainChanges_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manualDMBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dmPathText.ReadOnly = !dmPathText.ReadOnly;
+        }
+
+
+
+        private void scnToCheckText_Validating(object sender, CancelEventArgs e)
+        {
+            int length = scnToCheckText.TextLength;
+
+            if(scnToCheckText.Text.Substring(length - 3, length) != "scn")
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void dmLogBox_TextChanged(object sender, EventArgs e)
         {
 
         }

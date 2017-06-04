@@ -53,6 +53,7 @@
             this.InvCheck = new System.Windows.Forms.TabPage();
             this.HomePage = new System.Windows.Forms.TabPage();
             this.TabMenu = new System.Windows.Forms.TabControl();
+            this.ConfigCheck = new System.Windows.Forms.TabPage();
             this.DMCheck = new System.Windows.Forms.TabPage();
             this.mainChanges = new System.Windows.Forms.Button();
             this.getSCNButton = new System.Windows.Forms.Button();
@@ -63,14 +64,14 @@
             this.commitDBButton = new System.Windows.Forms.Button();
             this.updateDMButton = new System.Windows.Forms.Button();
             this.checkChangesButton = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dmLogBox = new System.Windows.Forms.TextBox();
             this.scnToCheckText = new System.Windows.Forms.TextBox();
             this.manualDMBox = new System.Windows.Forms.CheckBox();
             this.scnToCheckLabel = new System.Windows.Forms.Label();
             this.dmPathLabel = new System.Windows.Forms.Label();
             this.dmPathText = new System.Windows.Forms.TextBox();
             this.openSCN = new System.Windows.Forms.OpenFileDialog();
-            this.ConfigCheck = new System.Windows.Forms.TabPage();
+            this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.TabMenu.SuspendLayout();
             this.DMCheck.SuspendLayout();
@@ -145,8 +146,8 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.autoUpdateChangeDBToolStripMenuItem,
-            this.autoUpdateLDDiagToolStripMenuItem});
+            this.autoUpdateLDDiagToolStripMenuItem,
+            this.autoUpdateChangeDBToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -155,19 +156,20 @@
             // autoUpdateChangeDBToolStripMenuItem
             // 
             this.autoUpdateChangeDBToolStripMenuItem.Name = "autoUpdateChangeDBToolStripMenuItem";
-            this.autoUpdateChangeDBToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.autoUpdateChangeDBToolStripMenuItem.Text = "Auto Update ChangeDB";
+            this.autoUpdateChangeDBToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.autoUpdateChangeDBToolStripMenuItem.Text = "Auto Update Database";
             // 
             // autoUpdateLDDiagToolStripMenuItem
             // 
             this.autoUpdateLDDiagToolStripMenuItem.Name = "autoUpdateLDDiagToolStripMenuItem";
-            this.autoUpdateLDDiagToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.autoUpdateLDDiagToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.autoUpdateLDDiagToolStripMenuItem.Text = "Auto Update LDDiag";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
+            this.documentationToolStripMenuItem,
             this.updateToolStripMenuItem,
             this.downloadNewChangesToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
@@ -177,21 +179,21 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.updateToolStripMenuItem.Text = "Update LDDiag";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // downloadNewChangesToolStripMenuItem
             // 
             this.downloadNewChangesToolStripMenuItem.Name = "downloadNewChangesToolStripMenuItem";
-            this.downloadNewChangesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.downloadNewChangesToolStripMenuItem.Text = "Update ChangeDB";
+            this.downloadNewChangesToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.downloadNewChangesToolStripMenuItem.Text = "Update Database";
             // 
             // folderBrowserDialog
             // 
@@ -231,6 +233,15 @@
             this.TabMenu.TabIndex = 1;
             this.TabMenu.SelectedIndexChanged += new System.EventHandler(this.TabMenu_SelectedIndexChanged);
             // 
+            // ConfigCheck
+            // 
+            this.ConfigCheck.BackColor = System.Drawing.SystemColors.Control;
+            this.ConfigCheck.Location = new System.Drawing.Point(4, 22);
+            this.ConfigCheck.Name = "ConfigCheck";
+            this.ConfigCheck.Size = new System.Drawing.Size(490, 470);
+            this.ConfigCheck.TabIndex = 5;
+            this.ConfigCheck.Text = "Config Checker";
+            // 
             // DMCheck
             // 
             this.DMCheck.BackColor = System.Drawing.SystemColors.Control;
@@ -243,7 +254,7 @@
             this.DMCheck.Controls.Add(this.commitDBButton);
             this.DMCheck.Controls.Add(this.updateDMButton);
             this.DMCheck.Controls.Add(this.checkChangesButton);
-            this.DMCheck.Controls.Add(this.textBox4);
+            this.DMCheck.Controls.Add(this.dmLogBox);
             this.DMCheck.Controls.Add(this.scnToCheckText);
             this.DMCheck.Controls.Add(this.manualDMBox);
             this.DMCheck.Controls.Add(this.scnToCheckLabel);
@@ -337,17 +348,18 @@
             this.checkChangesButton.Name = "checkChangesButton";
             this.checkChangesButton.Size = new System.Drawing.Size(115, 23);
             this.checkChangesButton.TabIndex = 6;
-            this.checkChangesButton.Text = "Check Changes";
+            this.checkChangesButton.Text = "Compare to SCN";
             this.checkChangesButton.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // dmLogBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(0, 176);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(490, 294);
-            this.textBox4.TabIndex = 5;
+            this.dmLogBox.Location = new System.Drawing.Point(0, 176);
+            this.dmLogBox.Multiline = true;
+            this.dmLogBox.Name = "dmLogBox";
+            this.dmLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dmLogBox.Size = new System.Drawing.Size(490, 294);
+            this.dmLogBox.TabIndex = 5;
+            this.dmLogBox.TextChanged += new System.EventHandler(this.dmLogBox_TextChanged);
             // 
             // scnToCheckText
             // 
@@ -356,6 +368,7 @@
             this.scnToCheckText.Size = new System.Drawing.Size(340, 20);
             this.scnToCheckText.TabIndex = 4;
             this.scnToCheckText.TextChanged += new System.EventHandler(this.scnToCheckText_TextChanged);
+            this.scnToCheckText.Validating += new System.ComponentModel.CancelEventHandler(this.scnToCheckText_Validating);
             // 
             // manualDMBox
             // 
@@ -366,6 +379,7 @@
             this.manualDMBox.TabIndex = 3;
             this.manualDMBox.Text = "Set Path Manually";
             this.manualDMBox.UseVisualStyleBackColor = true;
+            this.manualDMBox.CheckedChanged += new System.EventHandler(this.manualDMBox_CheckedChanged);
             // 
             // scnToCheckLabel
             // 
@@ -401,14 +415,11 @@
             this.openSCN.Filter = "\"SCN Files|*.scn\"";
             this.openSCN.FileOk += new System.ComponentModel.CancelEventHandler(this.openSCN_FileOk);
             // 
-            // ConfigCheck
+            // documentationToolStripMenuItem
             // 
-            this.ConfigCheck.BackColor = System.Drawing.SystemColors.Control;
-            this.ConfigCheck.Location = new System.Drawing.Point(4, 22);
-            this.ConfigCheck.Name = "ConfigCheck";
-            this.ConfigCheck.Size = new System.Drawing.Size(490, 470);
-            this.ConfigCheck.TabIndex = 5;
-            this.ConfigCheck.Text = "Config Checker";
+            this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
+            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.documentationToolStripMenuItem.Text = "Documentation";
             // 
             // MainWindow
             // 
@@ -467,7 +478,6 @@
         private System.Windows.Forms.Button commitDBButton;
         private System.Windows.Forms.Button updateDMButton;
         private System.Windows.Forms.Button checkChangesButton;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadNewChangesToolStripMenuItem;
         private System.Windows.Forms.Button mainChanges;
@@ -476,6 +486,8 @@
         private System.Windows.Forms.ToolStripMenuItem autoUpdateLDDiagToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openSCN;
         private System.Windows.Forms.TabPage ConfigCheck;
+        public System.Windows.Forms.TextBox dmLogBox;
+        private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
     }
 }
 
