@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LDDiag
 {
-    class ConfigDiag
+    class AppManager
     {
     }
 }

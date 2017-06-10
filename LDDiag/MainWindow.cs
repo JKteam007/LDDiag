@@ -1,7 +1,9 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +14,15 @@ namespace STDiag
 {
     public partial class MainWindow : System.Windows.Forms.Form
     {
+        private static readonly ILog NativeLogger = log4net.LogManager.GetLogger("Native"); //Used to log exceptions and background info
+        private static readonly ILog ManagedLogger = log4net.LogManager.GetLogger("MainWindow"); //Used to log human readable output
 
         public string ldhome;
         public MainWindow()
         {
             InitializeComponent();
+            log4net.Config.XmlConfigurator.Configure();
+            NativeLogger.Info("Main Window Loaded");
 
             if (Environment.GetEnvironmentVariable("%LDMS_HOME%") != null)
             {
@@ -30,100 +36,54 @@ namespace STDiag
                     "The current directory will be used instead.\n", "Install Directory Not Found!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-                ldhome = System.Environment.CurrentDirectory;
+                ldhome = System.Environment.CurrentDirectory + "\\";
             }
 
+
             openSCN.InitialDirectory = ldhome + "ldscan\\ErrorScans";
+            dmPathText.Text = ldhome + "Datamart.xml";
 
         }
 
         public void updateDMLogBox(string message)
         {
             message = message + System.Environment.NewLine;
-
             dmLogBox.AppendText(message);
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void configToolStrpButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TabMenu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openSCN_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void scnToCheckText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mainChanges_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void manualDMBox_CheckedChanged(object sender, EventArgs e)
-        {
-            dmPathText.ReadOnly = !dmPathText.ReadOnly;
         }
 
 
 
         private void scnToCheckText_Validating(object sender, CancelEventArgs e)
         {
-            int length = scnToCheckText.TextLength;
+            string str = scnToCheckText.Text;
+            int length = str.Length;
+            int index = str.IndexOf('.') + 1;
+            string extension = "";
 
-            if(scnToCheckText.Text.Substring(length - 3, length) != "scn")
+            try
+            {               
+
+                if (scnToCheckText.Text.IndexOf('.') != -1)
+                {
+                    extension = scnToCheckText.Text.Substring(index);
+                }
+                else
+                {
+                    e.Cancel = true;
+                }              
+
+            }
+            catch (Exception ex)
             {
-                e.Cancel = true;
+                NativeLogger.Error(ex.Data.ToString());
+            }
+
+            if (extension != "scn")
+            {
+                updateDMLogBox("Invalid filename. File extension must be .scn");
+                scnToCheckText.Text = "";
             }
         }
 
-        private void dmLogBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
