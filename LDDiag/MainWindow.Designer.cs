@@ -42,10 +42,11 @@
             this.coreSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.credentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoUpdateChangeDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateLDDiagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoUpdateChangeDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadNewChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -71,10 +72,19 @@
             this.dmPathLabel = new System.Windows.Forms.Label();
             this.dmPathText = new System.Windows.Forms.TextBox();
             this.openSCN = new System.Windows.Forms.OpenFileDialog();
-            this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DebugButton = new System.Windows.Forms.Button();
+            this.consoleDebugBox = new System.Windows.Forms.CheckBox();
+            this.inventoryDebugLog = new System.Windows.Forms.CheckBox();
+            this.debugPanel = new System.Windows.Forms.Panel();
+            this.webDTSDebug = new System.Windows.Forms.CheckBox();
+            this.activeDTSDebug = new System.Windows.Forms.CheckBox();
+            this.alertSvcDebug = new System.Windows.Forms.CheckBox();
+            this.brokerDebug = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
+            this.HomePage.SuspendLayout();
             this.TabMenu.SuspendLayout();
             this.DMCheck.SuspendLayout();
+            this.debugPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -113,7 +123,7 @@
             // enterKeyToolStripMenuItem
             // 
             this.enterKeyToolStripMenuItem.Name = "enterKeyToolStripMenuItem";
-            this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enterKeyToolStripMenuItem.Text = "Enter Key";
             // 
             // exitToolStripMenuItem
@@ -153,17 +163,17 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // autoUpdateChangeDBToolStripMenuItem
-            // 
-            this.autoUpdateChangeDBToolStripMenuItem.Name = "autoUpdateChangeDBToolStripMenuItem";
-            this.autoUpdateChangeDBToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.autoUpdateChangeDBToolStripMenuItem.Text = "Auto Update Database";
-            // 
             // autoUpdateLDDiagToolStripMenuItem
             // 
             this.autoUpdateLDDiagToolStripMenuItem.Name = "autoUpdateLDDiagToolStripMenuItem";
             this.autoUpdateLDDiagToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.autoUpdateLDDiagToolStripMenuItem.Text = "Auto Update LDDiag";
+            // 
+            // autoUpdateChangeDBToolStripMenuItem
+            // 
+            this.autoUpdateChangeDBToolStripMenuItem.Name = "autoUpdateChangeDBToolStripMenuItem";
+            this.autoUpdateChangeDBToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.autoUpdateChangeDBToolStripMenuItem.Text = "Auto Update Database";
             // 
             // helpToolStripMenuItem
             // 
@@ -181,6 +191,12 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // documentationToolStripMenuItem
+            // 
+            this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
+            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.documentationToolStripMenuItem.Text = "Documentation";
             // 
             // updateToolStripMenuItem
             // 
@@ -212,6 +228,8 @@
             // HomePage
             // 
             this.HomePage.BackColor = System.Drawing.SystemColors.Control;
+            this.HomePage.Controls.Add(this.debugPanel);
+            this.HomePage.Controls.Add(this.DebugButton);
             this.HomePage.Location = new System.Drawing.Point(4, 22);
             this.HomePage.Name = "HomePage";
             this.HomePage.Padding = new System.Windows.Forms.Padding(3);
@@ -415,11 +433,94 @@
             this.openSCN.Filter = "\"SCN Files|*.scn\"";
             this.openSCN.FileOk += new System.ComponentModel.CancelEventHandler(this.openSCN_FileOk);
             // 
-            // documentationToolStripMenuItem
+            // DebugButton
             // 
-            this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
-            this.documentationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.documentationToolStripMenuItem.Text = "Documentation";
+            this.DebugButton.Location = new System.Drawing.Point(278, 188);
+            this.DebugButton.Name = "DebugButton";
+            this.DebugButton.Size = new System.Drawing.Size(180, 23);
+            this.DebugButton.TabIndex = 0;
+            this.DebugButton.Text = "Enable Debug Logs For Above";
+            this.DebugButton.UseVisualStyleBackColor = true;
+            // 
+            // consoleDebugBox
+            // 
+            this.consoleDebugBox.AutoSize = true;
+            this.consoleDebugBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consoleDebugBox.Location = new System.Drawing.Point(7, 6);
+            this.consoleDebugBox.Name = "consoleDebugBox";
+            this.consoleDebugBox.Size = new System.Drawing.Size(117, 20);
+            this.consoleDebugBox.TabIndex = 0;
+            this.consoleDebugBox.Text = "LDMS Console";
+            this.consoleDebugBox.UseVisualStyleBackColor = true;
+            // 
+            // inventoryDebugLog
+            // 
+            this.inventoryDebugLog.AutoSize = true;
+            this.inventoryDebugLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryDebugLog.Location = new System.Drawing.Point(7, 42);
+            this.inventoryDebugLog.Name = "inventoryDebugLog";
+            this.inventoryDebugLog.Size = new System.Drawing.Size(124, 20);
+            this.inventoryDebugLog.TabIndex = 1;
+            this.inventoryDebugLog.Text = "Inventory Server";
+            this.inventoryDebugLog.UseVisualStyleBackColor = true;
+            // 
+            // debugPanel
+            // 
+            this.debugPanel.Controls.Add(this.alertSvcDebug);
+            this.debugPanel.Controls.Add(this.activeDTSDebug);
+            this.debugPanel.Controls.Add(this.brokerDebug);
+            this.debugPanel.Controls.Add(this.webDTSDebug);
+            this.debugPanel.Controls.Add(this.inventoryDebugLog);
+            this.debugPanel.Controls.Add(this.consoleDebugBox);
+            this.debugPanel.Location = new System.Drawing.Point(225, 0);
+            this.debugPanel.Name = "debugPanel";
+            this.debugPanel.Size = new System.Drawing.Size(265, 182);
+            this.debugPanel.TabIndex = 1;
+            // 
+            // webDTSDebug
+            // 
+            this.webDTSDebug.AutoSize = true;
+            this.webDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.webDTSDebug.Location = new System.Drawing.Point(134, 6);
+            this.webDTSDebug.Name = "webDTSDebug";
+            this.webDTSDebug.Size = new System.Drawing.Size(128, 20);
+            this.webDTSDebug.TabIndex = 2;
+            this.webDTSDebug.Text = "DTS Web Macro";
+            this.webDTSDebug.UseVisualStyleBackColor = true;
+            // 
+            // activeDTSDebug
+            // 
+            this.activeDTSDebug.AutoSize = true;
+            this.activeDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeDTSDebug.Location = new System.Drawing.Point(134, 42);
+            this.activeDTSDebug.Name = "activeDTSDebug";
+            this.activeDTSDebug.Size = new System.Drawing.Size(133, 20);
+            this.activeDTSDebug.TabIndex = 3;
+            this.activeDTSDebug.Text = "Active DTS Rules";
+            this.activeDTSDebug.UseVisualStyleBackColor = true;
+            // 
+            // alertSvcDebug
+            // 
+            this.alertSvcDebug.AutoSize = true;
+            this.alertSvcDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertSvcDebug.Location = new System.Drawing.Point(7, 123);
+            this.alertSvcDebug.Name = "alertSvcDebug";
+            this.alertSvcDebug.Size = new System.Drawing.Size(121, 20);
+            this.alertSvcDebug.TabIndex = 4;
+            this.alertSvcDebug.Text = "Alerting Service";
+            this.alertSvcDebug.UseVisualStyleBackColor = true;
+            this.alertSvcDebug.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // brokerDebug
+            // 
+            this.brokerDebug.AutoSize = true;
+            this.brokerDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brokerDebug.Location = new System.Drawing.Point(7, 82);
+            this.brokerDebug.Name = "brokerDebug";
+            this.brokerDebug.Size = new System.Drawing.Size(116, 20);
+            this.brokerDebug.TabIndex = 7;
+            this.brokerDebug.Text = "Broker Service";
+            this.brokerDebug.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -437,9 +538,12 @@
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.HomePage.ResumeLayout(false);
             this.TabMenu.ResumeLayout(false);
             this.DMCheck.ResumeLayout(false);
             this.DMCheck.PerformLayout();
+            this.debugPanel.ResumeLayout(false);
+            this.debugPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,6 +592,14 @@
         private System.Windows.Forms.TabPage ConfigCheck;
         public System.Windows.Forms.TextBox dmLogBox;
         private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
+        private System.Windows.Forms.CheckBox brokerDebug;
+        private System.Windows.Forms.Panel debugPanel;
+        private System.Windows.Forms.CheckBox alertSvcDebug;
+        private System.Windows.Forms.CheckBox activeDTSDebug;
+        private System.Windows.Forms.CheckBox webDTSDebug;
+        private System.Windows.Forms.CheckBox inventoryDebugLog;
+        private System.Windows.Forms.CheckBox consoleDebugBox;
+        private System.Windows.Forms.Button DebugButton;
     }
 }
 
