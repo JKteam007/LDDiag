@@ -161,7 +161,6 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // autoUpdateLDDiagToolStripMenuItem
             // 
@@ -203,7 +202,6 @@
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
             this.updateToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.updateToolStripMenuItem.Text = "Update LDDiag";
-            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // downloadNewChangesToolStripMenuItem
             // 
@@ -249,7 +247,6 @@
             this.TabMenu.SelectedIndex = 0;
             this.TabMenu.Size = new System.Drawing.Size(498, 496);
             this.TabMenu.TabIndex = 1;
-            this.TabMenu.SelectedIndexChanged += new System.EventHandler(this.TabMenu_SelectedIndexChanged);
             // 
             // ConfigCheck
             // 
@@ -292,7 +289,6 @@
             this.mainChanges.TabIndex = 14;
             this.mainChanges.Text = "Standard Changes";
             this.mainChanges.UseVisualStyleBackColor = true;
-            this.mainChanges.Click += new System.EventHandler(this.mainChanges_Click);
             // 
             // getSCNButton
             // 
@@ -377,7 +373,6 @@
             this.dmLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dmLogBox.Size = new System.Drawing.Size(490, 294);
             this.dmLogBox.TabIndex = 5;
-            this.dmLogBox.TextChanged += new System.EventHandler(this.dmLogBox_TextChanged);
             // 
             // scnToCheckText
             // 
@@ -385,7 +380,6 @@
             this.scnToCheckText.Name = "scnToCheckText";
             this.scnToCheckText.Size = new System.Drawing.Size(340, 20);
             this.scnToCheckText.TabIndex = 4;
-            this.scnToCheckText.TextChanged += new System.EventHandler(this.scnToCheckText_TextChanged);
             this.scnToCheckText.Validating += new System.ComponentModel.CancelEventHandler(this.scnToCheckText_Validating);
             // 
             // manualDMBox
@@ -397,7 +391,6 @@
             this.manualDMBox.TabIndex = 3;
             this.manualDMBox.Text = "Set Path Manually";
             this.manualDMBox.UseVisualStyleBackColor = true;
-            this.manualDMBox.CheckedChanged += new System.EventHandler(this.manualDMBox_CheckedChanged);
             // 
             // scnToCheckLabel
             // 
@@ -426,12 +419,10 @@
             this.dmPathText.ReadOnly = true;
             this.dmPathText.Size = new System.Drawing.Size(314, 20);
             this.dmPathText.TabIndex = 0;
-            this.dmPathText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // openSCN
             // 
             this.openSCN.Filter = "\"SCN Files|*.scn\"";
-            this.openSCN.FileOk += new System.ComponentModel.CancelEventHandler(this.openSCN_FileOk);
             // 
             // DebugButton
             // 
@@ -535,7 +526,6 @@
             this.MinimumSize = new System.Drawing.Size(514, 562);
             this.Name = "MainWindow";
             this.Text = "LDDiag";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.HomePage.ResumeLayout(false);

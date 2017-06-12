@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>510</y>
-      <w>150</w>
-      <h>120</h>
+      <x>756</x>
+      <y>72</y>
+      <w>171</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>UpdateManager
 --
-gg
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>360</x>
-      <y>680</y>
-      <w>150</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>ConfigDiag
+string CheckForUpdates()
+-string scope
+-retval needsUpdate
 --
-gg
+void Update()
+-string updateNeeded
+
 
 
 
@@ -38,14 +27,14 @@ gg
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
-      <y>510</y>
-      <w>150</w>
-      <h>120</h>
+      <x>711</x>
+      <y>585</y>
+      <w>198</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>InventoryChecker
 --
-gg
+
 
 
 
@@ -55,20 +44,27 @@ gg
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>120</y>
-      <w>370</w>
-      <h>240</h>
+      <x>711</x>
+      <y>216</y>
+      <w>207</w>
+      <h>252</h>
     </coordinates>
     <panel_attributes>DatamartChecker
 --
-CompareToSCN
+void LoadXML()
 --
-UpdateDatamart
+string GetXMLNodeValue()
+-string node
+-retval nodeVal
 --
-CommitToDB
+void CompareToSCN()
 --
-GetSCNFromEventVwr
+void UpdateDatamart()
+--
+void CommitToDB()
+--
+string GetSCNFromEventVwr()
+-retval fileName
 
 
 
@@ -78,14 +74,13 @@ GetSCNFromEventVwr
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
-      <y>680</y>
-      <w>150</w>
-      <h>120</h>
+      <x>1206</x>
+      <y>72</y>
+      <w>135</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Util
 --
-gg
 
 
 
@@ -95,18 +90,35 @@ gg
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>120</y>
-      <w>410</w>
-      <h>260</h>
+      <x>369</x>
+      <y>144</y>
+      <w>261</w>
+      <h>549</h>
     </coordinates>
     <panel_attributes>AppManager
 --
-RunDatamartManager
+void Update()
+--
+void Request()
+-string request
+-boolean isNewThread,
+-logLevel loggerLevel
+-logger loggerToUse
+--
+void RunDatamartChecker()
 -string datamartPath, scnPath, option
 -boolean doBackup, doRestart, doValidate
 --
+void RunInventoryChecker()
 
+
+
+--
+void RunConfigChecker()
+
+
+
+--
 
 
 </panel_attributes>
@@ -115,14 +127,14 @@ RunDatamartManager
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>510</y>
-      <w>150</w>
-      <h>120</h>
+      <x>27</x>
+      <y>630</y>
+      <w>180</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>ConfigChecker
 --
-gg
+
 
 
 
@@ -132,12 +144,138 @@ gg
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>120</y>
-      <w>180</w>
-      <h>70</h>
+      <x>621</x>
+      <y>216</y>
+      <w>108</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>160.0;10.0;80.0;10.0;80.0;50.0;10.0;50.0</additional_attributes>
+    <additional_attributes>100.0;10.0;70.0;10.0;70.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>144</y>
+      <w>234</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>MainWindow
+--
+Create AppManager
+--
+DatamartChecker
+--
+InventoryChecker
+--
+Config Checker
+--
+UpdateLDDiag
+--
+UpdateDB
+--
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>144</y>
+      <w>126</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;50.0;10.0;50.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>621</x>
+      <y>315</y>
+      <w>108</w>
+      <h>297</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;310.0;50.0;310.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>396</y>
+      <w>189</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;270.0;130.0;270.0;130.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>180</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>180</y>
+      <w>81</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>198</y>
+      <w>81</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>216</y>
+      <w>81</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>234</y>
+      <w>81</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>621</x>
+      <y>72</y>
+      <w>153</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;80.0;10.0;80.0;110.0;10.0;110.0</additional_attributes>
   </element>
 </diagram>
