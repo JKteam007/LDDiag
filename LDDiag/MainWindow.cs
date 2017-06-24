@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using LDDiag;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace STDiag
             log4net.Config.XmlConfigurator.Configure();
             NativeLogger.Info("Main Window Loaded");
 
+
             if (Environment.GetEnvironmentVariable("%LDMS_HOME%") != null)
             {
                 //set variable to LDMS_HOME variable if valid
@@ -43,12 +45,14 @@ namespace STDiag
             openSCN.InitialDirectory = ldhome + "ldscan\\ErrorScans";
             dmPathText.Text = ldhome + "Datamart.xml";
 
+
+            
+
         }
 
-        public void updateDMLogBox(string message)
+        public static void updateDMLogBox(string message)
         {
-            message = message + System.Environment.NewLine;
-            dmLogBox.AppendText(message);
+            
         }
 
 
@@ -84,8 +88,6 @@ namespace STDiag
                 scnToCheckText.Text = "";
             }
         }
-
-<<<<<<< HEAD
         private void dmLogBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -95,7 +97,10 @@ namespace STDiag
         {
 
         }
-=======
->>>>>>> origin/master
+
+        private void mainChanges_Click(object sender, EventArgs e)
+        {
+            DatamartChecker DMChecker = new DatamartChecker(dmPathText.Text, scnToCheckText.Text, "Standard", false, false, false);
+        }
     }
 }

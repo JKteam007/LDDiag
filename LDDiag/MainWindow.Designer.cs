@@ -53,6 +53,14 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.InvCheck = new System.Windows.Forms.TabPage();
             this.HomePage = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.consoleDebugBox = new System.Windows.Forms.CheckBox();
+            this.alertSvcDebug = new System.Windows.Forms.CheckBox();
+            this.inventoryDebugLog = new System.Windows.Forms.CheckBox();
+            this.activeDTSDebug = new System.Windows.Forms.CheckBox();
+            this.webDTSDebug = new System.Windows.Forms.CheckBox();
+            this.DebugButton = new System.Windows.Forms.Button();
+            this.brokerDebug = new System.Windows.Forms.CheckBox();
             this.TabMenu = new System.Windows.Forms.TabControl();
             this.ConfigCheck = new System.Windows.Forms.TabPage();
             this.DMCheck = new System.Windows.Forms.TabPage();
@@ -65,26 +73,18 @@
             this.commitDBButton = new System.Windows.Forms.Button();
             this.updateDMButton = new System.Windows.Forms.Button();
             this.checkChangesButton = new System.Windows.Forms.Button();
-            this.dmLogBox = new System.Windows.Forms.TextBox();
+            dmLogBox = new System.Windows.Forms.TextBox();
             this.scnToCheckText = new System.Windows.Forms.TextBox();
             this.manualDMBox = new System.Windows.Forms.CheckBox();
             this.scnToCheckLabel = new System.Windows.Forms.Label();
             this.dmPathLabel = new System.Windows.Forms.Label();
             this.dmPathText = new System.Windows.Forms.TextBox();
             this.openSCN = new System.Windows.Forms.OpenFileDialog();
-            this.DebugButton = new System.Windows.Forms.Button();
-            this.consoleDebugBox = new System.Windows.Forms.CheckBox();
-            this.inventoryDebugLog = new System.Windows.Forms.CheckBox();
-            this.debugPanel = new System.Windows.Forms.Panel();
-            this.webDTSDebug = new System.Windows.Forms.CheckBox();
-            this.activeDTSDebug = new System.Windows.Forms.CheckBox();
-            this.alertSvcDebug = new System.Windows.Forms.CheckBox();
-            this.brokerDebug = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.HomePage.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.TabMenu.SuspendLayout();
             this.DMCheck.SuspendLayout();
-            this.debugPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,7 +123,7 @@
             // enterKeyToolStripMenuItem
             // 
             this.enterKeyToolStripMenuItem.Name = "enterKeyToolStripMenuItem";
-            this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.enterKeyToolStripMenuItem.Text = "Enter Key";
             // 
             // exitToolStripMenuItem
@@ -144,13 +144,13 @@
             // coreSettingsToolStripMenuItem
             // 
             this.coreSettingsToolStripMenuItem.Name = "coreSettingsToolStripMenuItem";
-            this.coreSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.coreSettingsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.coreSettingsToolStripMenuItem.Text = "Core Settings";
             // 
             // credentialsToolStripMenuItem
             // 
             this.credentialsToolStripMenuItem.Name = "credentialsToolStripMenuItem";
-            this.credentialsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.credentialsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.credentialsToolStripMenuItem.Text = "Credentials";
             // 
             // settingsToolStripMenuItem
@@ -226,14 +226,103 @@
             // HomePage
             // 
             this.HomePage.BackColor = System.Drawing.SystemColors.Control;
-            this.HomePage.Controls.Add(this.debugPanel);
-            this.HomePage.Controls.Add(this.DebugButton);
+            this.HomePage.Controls.Add(this.panel1);
             this.HomePage.Location = new System.Drawing.Point(4, 22);
             this.HomePage.Name = "HomePage";
             this.HomePage.Padding = new System.Windows.Forms.Padding(3);
             this.HomePage.Size = new System.Drawing.Size(490, 470);
             this.HomePage.TabIndex = 0;
             this.HomePage.Text = "Home";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.consoleDebugBox);
+            this.panel1.Controls.Add(this.alertSvcDebug);
+            this.panel1.Controls.Add(this.inventoryDebugLog);
+            this.panel1.Controls.Add(this.activeDTSDebug);
+            this.panel1.Controls.Add(this.webDTSDebug);
+            this.panel1.Controls.Add(this.DebugButton);
+            this.panel1.Controls.Add(this.brokerDebug);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(490, 165);
+            this.panel1.TabIndex = 8;
+            // 
+            // consoleDebugBox
+            // 
+            this.consoleDebugBox.AutoSize = true;
+            this.consoleDebugBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consoleDebugBox.Location = new System.Drawing.Point(6, 21);
+            this.consoleDebugBox.Name = "consoleDebugBox";
+            this.consoleDebugBox.Size = new System.Drawing.Size(117, 20);
+            this.consoleDebugBox.TabIndex = 0;
+            this.consoleDebugBox.Text = "LDMS Console";
+            this.consoleDebugBox.UseVisualStyleBackColor = true;
+            // 
+            // alertSvcDebug
+            // 
+            this.alertSvcDebug.AutoSize = true;
+            this.alertSvcDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertSvcDebug.Location = new System.Drawing.Point(349, 59);
+            this.alertSvcDebug.Name = "alertSvcDebug";
+            this.alertSvcDebug.Size = new System.Drawing.Size(121, 20);
+            this.alertSvcDebug.TabIndex = 4;
+            this.alertSvcDebug.Text = "Alerting Service";
+            this.alertSvcDebug.UseVisualStyleBackColor = true;
+            this.alertSvcDebug.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // inventoryDebugLog
+            // 
+            this.inventoryDebugLog.AutoSize = true;
+            this.inventoryDebugLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryDebugLog.Location = new System.Drawing.Point(6, 59);
+            this.inventoryDebugLog.Name = "inventoryDebugLog";
+            this.inventoryDebugLog.Size = new System.Drawing.Size(124, 20);
+            this.inventoryDebugLog.TabIndex = 1;
+            this.inventoryDebugLog.Text = "Inventory Server";
+            this.inventoryDebugLog.UseVisualStyleBackColor = true;
+            // 
+            // activeDTSDebug
+            // 
+            this.activeDTSDebug.AutoSize = true;
+            this.activeDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeDTSDebug.Location = new System.Drawing.Point(349, 21);
+            this.activeDTSDebug.Name = "activeDTSDebug";
+            this.activeDTSDebug.Size = new System.Drawing.Size(133, 20);
+            this.activeDTSDebug.TabIndex = 3;
+            this.activeDTSDebug.Text = "Active DTS Rules";
+            this.activeDTSDebug.UseVisualStyleBackColor = true;
+            // 
+            // webDTSDebug
+            // 
+            this.webDTSDebug.AutoSize = true;
+            this.webDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.webDTSDebug.Location = new System.Drawing.Point(176, 21);
+            this.webDTSDebug.Name = "webDTSDebug";
+            this.webDTSDebug.Size = new System.Drawing.Size(128, 20);
+            this.webDTSDebug.TabIndex = 2;
+            this.webDTSDebug.Text = "DTS Web Macro";
+            this.webDTSDebug.UseVisualStyleBackColor = true;
+            // 
+            // DebugButton
+            // 
+            this.DebugButton.Location = new System.Drawing.Point(147, 106);
+            this.DebugButton.Name = "DebugButton";
+            this.DebugButton.Size = new System.Drawing.Size(180, 23);
+            this.DebugButton.TabIndex = 0;
+            this.DebugButton.Text = "Enable Debug Logs For Above";
+            this.DebugButton.UseVisualStyleBackColor = true;
+            // 
+            // brokerDebug
+            // 
+            this.brokerDebug.AutoSize = true;
+            this.brokerDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brokerDebug.Location = new System.Drawing.Point(176, 59);
+            this.brokerDebug.Name = "brokerDebug";
+            this.brokerDebug.Size = new System.Drawing.Size(116, 20);
+            this.brokerDebug.TabIndex = 7;
+            this.brokerDebug.Text = "Broker Service";
+            this.brokerDebug.UseVisualStyleBackColor = true;
             // 
             // TabMenu
             // 
@@ -269,7 +358,7 @@
             this.DMCheck.Controls.Add(this.commitDBButton);
             this.DMCheck.Controls.Add(this.updateDMButton);
             this.DMCheck.Controls.Add(this.checkChangesButton);
-            this.DMCheck.Controls.Add(this.dmLogBox);
+            this.DMCheck.Controls.Add(dmLogBox);
             this.DMCheck.Controls.Add(this.scnToCheckText);
             this.DMCheck.Controls.Add(this.manualDMBox);
             this.DMCheck.Controls.Add(this.scnToCheckLabel);
@@ -289,6 +378,7 @@
             this.mainChanges.TabIndex = 14;
             this.mainChanges.Text = "Standard Changes";
             this.mainChanges.UseVisualStyleBackColor = true;
+            this.mainChanges.Click += new System.EventHandler(this.mainChanges_Click);
             // 
             // getSCNButton
             // 
@@ -367,12 +457,12 @@
             // 
             // dmLogBox
             // 
-            this.dmLogBox.Location = new System.Drawing.Point(0, 176);
-            this.dmLogBox.Multiline = true;
-            this.dmLogBox.Name = "dmLogBox";
-            this.dmLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dmLogBox.Size = new System.Drawing.Size(490, 294);
-            this.dmLogBox.TabIndex = 5;
+            dmLogBox.Location = new System.Drawing.Point(0, 176);
+            dmLogBox.Multiline = true;
+            dmLogBox.Name = "dmLogBox";
+            dmLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            dmLogBox.Size = new System.Drawing.Size(490, 294);
+            dmLogBox.TabIndex = 5;
             // 
             // scnToCheckText
             // 
@@ -424,95 +514,6 @@
             // 
             this.openSCN.Filter = "\"SCN Files|*.scn\"";
             // 
-            // DebugButton
-            // 
-            this.DebugButton.Location = new System.Drawing.Point(278, 188);
-            this.DebugButton.Name = "DebugButton";
-            this.DebugButton.Size = new System.Drawing.Size(180, 23);
-            this.DebugButton.TabIndex = 0;
-            this.DebugButton.Text = "Enable Debug Logs For Above";
-            this.DebugButton.UseVisualStyleBackColor = true;
-            // 
-            // consoleDebugBox
-            // 
-            this.consoleDebugBox.AutoSize = true;
-            this.consoleDebugBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consoleDebugBox.Location = new System.Drawing.Point(7, 6);
-            this.consoleDebugBox.Name = "consoleDebugBox";
-            this.consoleDebugBox.Size = new System.Drawing.Size(117, 20);
-            this.consoleDebugBox.TabIndex = 0;
-            this.consoleDebugBox.Text = "LDMS Console";
-            this.consoleDebugBox.UseVisualStyleBackColor = true;
-            // 
-            // inventoryDebugLog
-            // 
-            this.inventoryDebugLog.AutoSize = true;
-            this.inventoryDebugLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventoryDebugLog.Location = new System.Drawing.Point(7, 42);
-            this.inventoryDebugLog.Name = "inventoryDebugLog";
-            this.inventoryDebugLog.Size = new System.Drawing.Size(124, 20);
-            this.inventoryDebugLog.TabIndex = 1;
-            this.inventoryDebugLog.Text = "Inventory Server";
-            this.inventoryDebugLog.UseVisualStyleBackColor = true;
-            // 
-            // debugPanel
-            // 
-            this.debugPanel.Controls.Add(this.alertSvcDebug);
-            this.debugPanel.Controls.Add(this.activeDTSDebug);
-            this.debugPanel.Controls.Add(this.brokerDebug);
-            this.debugPanel.Controls.Add(this.webDTSDebug);
-            this.debugPanel.Controls.Add(this.inventoryDebugLog);
-            this.debugPanel.Controls.Add(this.consoleDebugBox);
-            this.debugPanel.Location = new System.Drawing.Point(225, 0);
-            this.debugPanel.Name = "debugPanel";
-            this.debugPanel.Size = new System.Drawing.Size(265, 182);
-            this.debugPanel.TabIndex = 1;
-            // 
-            // webDTSDebug
-            // 
-            this.webDTSDebug.AutoSize = true;
-            this.webDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.webDTSDebug.Location = new System.Drawing.Point(134, 6);
-            this.webDTSDebug.Name = "webDTSDebug";
-            this.webDTSDebug.Size = new System.Drawing.Size(128, 20);
-            this.webDTSDebug.TabIndex = 2;
-            this.webDTSDebug.Text = "DTS Web Macro";
-            this.webDTSDebug.UseVisualStyleBackColor = true;
-            // 
-            // activeDTSDebug
-            // 
-            this.activeDTSDebug.AutoSize = true;
-            this.activeDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeDTSDebug.Location = new System.Drawing.Point(134, 42);
-            this.activeDTSDebug.Name = "activeDTSDebug";
-            this.activeDTSDebug.Size = new System.Drawing.Size(133, 20);
-            this.activeDTSDebug.TabIndex = 3;
-            this.activeDTSDebug.Text = "Active DTS Rules";
-            this.activeDTSDebug.UseVisualStyleBackColor = true;
-            // 
-            // alertSvcDebug
-            // 
-            this.alertSvcDebug.AutoSize = true;
-            this.alertSvcDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertSvcDebug.Location = new System.Drawing.Point(7, 123);
-            this.alertSvcDebug.Name = "alertSvcDebug";
-            this.alertSvcDebug.Size = new System.Drawing.Size(121, 20);
-            this.alertSvcDebug.TabIndex = 4;
-            this.alertSvcDebug.Text = "Alerting Service";
-            this.alertSvcDebug.UseVisualStyleBackColor = true;
-            this.alertSvcDebug.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // brokerDebug
-            // 
-            this.brokerDebug.AutoSize = true;
-            this.brokerDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brokerDebug.Location = new System.Drawing.Point(7, 82);
-            this.brokerDebug.Name = "brokerDebug";
-            this.brokerDebug.Size = new System.Drawing.Size(116, 20);
-            this.brokerDebug.TabIndex = 7;
-            this.brokerDebug.Text = "Broker Service";
-            this.brokerDebug.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,11 +530,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.HomePage.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.TabMenu.ResumeLayout(false);
             this.DMCheck.ResumeLayout(false);
             this.DMCheck.PerformLayout();
-            this.debugPanel.ResumeLayout(false);
-            this.debugPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,16 +581,16 @@
         private System.Windows.Forms.ToolStripMenuItem autoUpdateLDDiagToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openSCN;
         private System.Windows.Forms.TabPage ConfigCheck;
-        public System.Windows.Forms.TextBox dmLogBox;
+        public static System.Windows.Forms.TextBox dmLogBox;
         private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
         private System.Windows.Forms.CheckBox brokerDebug;
-        private System.Windows.Forms.Panel debugPanel;
         private System.Windows.Forms.CheckBox alertSvcDebug;
         private System.Windows.Forms.CheckBox activeDTSDebug;
         private System.Windows.Forms.CheckBox webDTSDebug;
         private System.Windows.Forms.CheckBox inventoryDebugLog;
         private System.Windows.Forms.CheckBox consoleDebugBox;
         private System.Windows.Forms.Button DebugButton;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
