@@ -53,6 +53,8 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.InvCheck = new System.Windows.Forms.TabPage();
             this.HomePage = new System.Windows.Forms.TabPage();
+            this.progressBarMain = new System.Windows.Forms.ProgressBar();
+            this.restartSvcsButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.consoleDebugBox = new System.Windows.Forms.CheckBox();
             this.alertSvcDebug = new System.Windows.Forms.CheckBox();
@@ -73,7 +75,7 @@
             this.commitDBButton = new System.Windows.Forms.Button();
             this.updateDMButton = new System.Windows.Forms.Button();
             this.checkChangesButton = new System.Windows.Forms.Button();
-            dmLogBox = new System.Windows.Forms.TextBox();
+            this.dmLogBox = new System.Windows.Forms.TextBox();
             this.scnToCheckText = new System.Windows.Forms.TextBox();
             this.manualDMBox = new System.Windows.Forms.CheckBox();
             this.scnToCheckLabel = new System.Windows.Forms.Label();
@@ -226,6 +228,8 @@
             // HomePage
             // 
             this.HomePage.BackColor = System.Drawing.SystemColors.Control;
+            this.HomePage.Controls.Add(this.progressBarMain);
+            this.HomePage.Controls.Add(this.restartSvcsButton);
             this.HomePage.Controls.Add(this.panel1);
             this.HomePage.Location = new System.Drawing.Point(4, 22);
             this.HomePage.Name = "HomePage";
@@ -233,6 +237,24 @@
             this.HomePage.Size = new System.Drawing.Size(490, 470);
             this.HomePage.TabIndex = 0;
             this.HomePage.Text = "Home";
+            // 
+            // progressBarMain
+            // 
+            this.progressBarMain.Location = new System.Drawing.Point(3, 441);
+            this.progressBarMain.Name = "progressBarMain";
+            this.progressBarMain.Size = new System.Drawing.Size(484, 23);
+            this.progressBarMain.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarMain.TabIndex = 10;
+            // 
+            // restartSvcsButton
+            // 
+            this.restartSvcsButton.Location = new System.Drawing.Point(6, 232);
+            this.restartSvcsButton.Name = "restartSvcsButton";
+            this.restartSvcsButton.Size = new System.Drawing.Size(180, 23);
+            this.restartSvcsButton.TabIndex = 9;
+            this.restartSvcsButton.Text = "Restart All Landesk Services";
+            this.restartSvcsButton.UseVisualStyleBackColor = true;
+            this.restartSvcsButton.Click += new System.EventHandler(this.restartSvcsButton_Click);
             // 
             // panel1
             // 
@@ -243,9 +265,9 @@
             this.panel1.Controls.Add(this.webDTSDebug);
             this.panel1.Controls.Add(this.DebugButton);
             this.panel1.Controls.Add(this.brokerDebug);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 261);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(490, 165);
+            this.panel1.Size = new System.Drawing.Size(490, 176);
             this.panel1.TabIndex = 8;
             // 
             // consoleDebugBox
@@ -258,6 +280,7 @@
             this.consoleDebugBox.TabIndex = 0;
             this.consoleDebugBox.Text = "LDMS Console";
             this.consoleDebugBox.UseVisualStyleBackColor = true;
+            this.consoleDebugBox.CheckedChanged += new System.EventHandler(this.consoleDebugBox_CheckedChanged);
             // 
             // alertSvcDebug
             // 
@@ -269,7 +292,7 @@
             this.alertSvcDebug.TabIndex = 4;
             this.alertSvcDebug.Text = "Alerting Service";
             this.alertSvcDebug.UseVisualStyleBackColor = true;
-            this.alertSvcDebug.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.alertSvcDebug.CheckedChanged += new System.EventHandler(this.alertSvc_checkChanged);
             // 
             // inventoryDebugLog
             // 
@@ -281,6 +304,7 @@
             this.inventoryDebugLog.TabIndex = 1;
             this.inventoryDebugLog.Text = "Inventory Server";
             this.inventoryDebugLog.UseVisualStyleBackColor = true;
+            this.inventoryDebugLog.CheckedChanged += new System.EventHandler(this.inventoryDebugLog_CheckedChanged);
             // 
             // activeDTSDebug
             // 
@@ -292,6 +316,7 @@
             this.activeDTSDebug.TabIndex = 3;
             this.activeDTSDebug.Text = "Active DTS Rules";
             this.activeDTSDebug.UseVisualStyleBackColor = true;
+            this.activeDTSDebug.CheckedChanged += new System.EventHandler(this.activeDTSDebug_CheckedChanged);
             // 
             // webDTSDebug
             // 
@@ -299,10 +324,11 @@
             this.webDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.webDTSDebug.Location = new System.Drawing.Point(176, 21);
             this.webDTSDebug.Name = "webDTSDebug";
-            this.webDTSDebug.Size = new System.Drawing.Size(128, 20);
+            this.webDTSDebug.Size = new System.Drawing.Size(125, 20);
             this.webDTSDebug.TabIndex = 2;
-            this.webDTSDebug.Text = "DTS Web Macro";
+            this.webDTSDebug.Text = "DTS WebMacro";
             this.webDTSDebug.UseVisualStyleBackColor = true;
+            this.webDTSDebug.CheckedChanged += new System.EventHandler(this.webDTSDebug_CheckedChanged);
             // 
             // DebugButton
             // 
@@ -312,6 +338,7 @@
             this.DebugButton.TabIndex = 0;
             this.DebugButton.Text = "Enable Debug Logs For Above";
             this.DebugButton.UseVisualStyleBackColor = true;
+            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
             // 
             // brokerDebug
             // 
@@ -323,6 +350,7 @@
             this.brokerDebug.TabIndex = 7;
             this.brokerDebug.Text = "Broker Service";
             this.brokerDebug.UseVisualStyleBackColor = true;
+            this.brokerDebug.CheckedChanged += new System.EventHandler(this.brokerDebug_CheckedChanged);
             // 
             // TabMenu
             // 
@@ -336,6 +364,7 @@
             this.TabMenu.SelectedIndex = 0;
             this.TabMenu.Size = new System.Drawing.Size(498, 496);
             this.TabMenu.TabIndex = 1;
+            this.TabMenu.Visible = false;
             // 
             // ConfigCheck
             // 
@@ -358,7 +387,7 @@
             this.DMCheck.Controls.Add(this.commitDBButton);
             this.DMCheck.Controls.Add(this.updateDMButton);
             this.DMCheck.Controls.Add(this.checkChangesButton);
-            this.DMCheck.Controls.Add(dmLogBox);
+            this.DMCheck.Controls.Add(this.dmLogBox);
             this.DMCheck.Controls.Add(this.scnToCheckText);
             this.DMCheck.Controls.Add(this.manualDMBox);
             this.DMCheck.Controls.Add(this.scnToCheckLabel);
@@ -457,12 +486,12 @@
             // 
             // dmLogBox
             // 
-            dmLogBox.Location = new System.Drawing.Point(0, 176);
-            dmLogBox.Multiline = true;
-            dmLogBox.Name = "dmLogBox";
-            dmLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            dmLogBox.Size = new System.Drawing.Size(490, 294);
-            dmLogBox.TabIndex = 5;
+            this.dmLogBox.Location = new System.Drawing.Point(0, 176);
+            this.dmLogBox.Multiline = true;
+            this.dmLogBox.Name = "dmLogBox";
+            this.dmLogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dmLogBox.Size = new System.Drawing.Size(490, 294);
+            this.dmLogBox.TabIndex = 5;
             // 
             // scnToCheckText
             // 
@@ -581,7 +610,6 @@
         private System.Windows.Forms.ToolStripMenuItem autoUpdateLDDiagToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openSCN;
         private System.Windows.Forms.TabPage ConfigCheck;
-        public static System.Windows.Forms.TextBox dmLogBox;
         private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
         private System.Windows.Forms.CheckBox brokerDebug;
         private System.Windows.Forms.CheckBox alertSvcDebug;
@@ -591,6 +619,9 @@
         private System.Windows.Forms.CheckBox consoleDebugBox;
         private System.Windows.Forms.Button DebugButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button restartSvcsButton;
+        private System.Windows.Forms.ProgressBar progressBarMain;
+        public System.Windows.Forms.TextBox dmLogBox;
     }
 }
 
