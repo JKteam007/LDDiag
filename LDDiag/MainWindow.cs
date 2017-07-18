@@ -31,7 +31,7 @@ namespace STDiag
             NativeLogger.Info("Main Window Loaded");
 
 
-            if (Environment.GetEnvironmentVariable("%LDMS_HOME%") != null)
+            if (Environment.GetEnvironmentVariable("LDMS_HOME") != null)
             {
                 //set variable to LDMS_HOME variable if valid
                 ldhome = System.Environment.GetEnvironmentVariable("%LDMS_HOME%");
@@ -39,7 +39,7 @@ namespace STDiag
             else
             {
                 //if not on a Core, sets ldhome to current running directory and warns user
-                MessageBox.Show("Could detect Core install path.\n" +
+                MessageBox.Show("Could not detect Core install path.\n" +
                     "The current directory will be used instead.\n", "Install Directory Not Found!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -55,9 +55,10 @@ namespace STDiag
 
         }
 
-        public static void updateDMLogBox(string message)
+        public void updateDMLogBox(string message)
         {
-
+            message = message + System.Environment.NewLine;
+            dmLogBox.AppendText(message);
         }
 
 
@@ -285,6 +286,8 @@ namespace STDiag
             }
 
         }
+
+
         private void mainChanges_Click(object sender, EventArgs e)
         {
             DatamartChecker DMChecker = new DatamartChecker(dmPathText.Text, scnToCheckText.Text, "Standard", false, false, false);

@@ -3,6 +3,7 @@ using STDiag;
 using System;
 using System.Xml;
 using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace LDDiag
 {
@@ -10,6 +11,7 @@ namespace LDDiag
     {
         private static readonly ILog NativeLogger = log4net.LogManager.GetLogger("Native");
         private static readonly ILog UtilLogger = log4net.LogManager.GetLogger("Util");
+        private Form MainWindow = Application.OpenForms[0];
         public static XmlDocument readXML(string xmlPath)
         {
 
@@ -34,10 +36,9 @@ namespace LDDiag
 
         }
 
-        public static void DMLogBox(string message)
+        public void DMLogBox(string message)
         {
-            message = message + System.Environment.NewLine;
-            MainWindow.dmLogBox.AppendText(message);
+           MainWindow.UpdateDM
         }
 
         public static void createRegKey(string path, string name, string value, string type)

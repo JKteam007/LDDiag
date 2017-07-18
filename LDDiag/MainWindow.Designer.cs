@@ -364,7 +364,6 @@
             this.TabMenu.SelectedIndex = 0;
             this.TabMenu.Size = new System.Drawing.Size(498, 496);
             this.TabMenu.TabIndex = 1;
-            this.TabMenu.Visible = false;
             // 
             // ConfigCheck
             // 
