@@ -47,10 +47,6 @@ namespace STDiag
             }
 
 
-            openSCN.InitialDirectory = ldhome + "ldscan\\ErrorScans";
-            dmPathText.Text = ldhome + "Datamart.xml";
-
-
 
 
         }
@@ -58,45 +54,6 @@ namespace STDiag
         public void updateDMLogBox(string message)
         {
             message = message + System.Environment.NewLine;
-            dmLogBox.AppendText(message);
-        }
-
-
-        private void scnToCheckText_Validating(object sender, CancelEventArgs e)
-        {
-            string str = scnToCheckText.Text;
-            int length = str.Length;
-            int index = str.IndexOf('.') + 1;
-            string extension = "";
-
-            try
-            {
-
-                if (scnToCheckText.Text.IndexOf('.') != -1)
-                {
-                    extension = scnToCheckText.Text.Substring(index);
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                NativeLogger.Error(ex.Data.ToString());
-            }
-
-            if (extension != "scn")
-            {
-                updateDMLogBox("Invalid filename. File extension must be .scn");
-                scnToCheckText.Text = "";
-            }
-        }
-
-        private void dmLogBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -288,10 +245,7 @@ namespace STDiag
         }
 
 
-        private void mainChanges_Click(object sender, EventArgs e)
-        {
-            DatamartChecker DMChecker = new DatamartChecker(dmPathText.Text, scnToCheckText.Text, "Standard", false, false, false);
-        }
+       
         
         private void webDTSDebug_CheckedChanged(object sender, EventArgs e)
         {
@@ -374,6 +328,16 @@ namespace STDiag
                 totalcheckedBoxes--;
                 Debug.WriteLine(totalcheckedBoxes);
             }
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomePage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

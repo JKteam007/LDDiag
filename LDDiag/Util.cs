@@ -11,7 +11,7 @@ namespace LDDiag
     {
         private static readonly ILog NativeLogger = log4net.LogManager.GetLogger("Native");
         private static readonly ILog UtilLogger = log4net.LogManager.GetLogger("Util");
-        private Form MainWindow = Application.OpenForms[0];
+        Form mainform = Application.OpenForms["Mainwindow"];
         public static XmlDocument readXML(string xmlPath)
         {
 
@@ -34,11 +34,6 @@ namespace LDDiag
 
             return xdoc;
 
-        }
-
-        public void DMLogBox(string message)
-        {
-           MainWindow.UpdateDM
         }
 
         public static void createRegKey(string path, string name, string value, string type)
