@@ -46,7 +46,7 @@ namespace STDiag
                 ldhome = System.Environment.CurrentDirectory + "\\";
             }
 
-
+            TabMenu.TabPages.Remove(ConfigCheck);
 
 
         }
@@ -336,6 +336,11 @@ namespace STDiag
         }
 
         private void HomePage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

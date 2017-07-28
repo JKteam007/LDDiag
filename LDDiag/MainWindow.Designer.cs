@@ -53,64 +53,66 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openSCN = new System.Windows.Forms.OpenFileDialog();
             this.InvCheck = new System.Windows.Forms.TabPage();
+            this.inventoryProgressBar = new System.Windows.Forms.ProgressBar();
             this.ConfigCheck = new System.Windows.Forms.TabPage();
+            this.configProgessBar = new System.Windows.Forms.ProgressBar();
             this.HomePage = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.brokerDebug = new System.Windows.Forms.CheckBox();
-            this.DebugButton = new System.Windows.Forms.Button();
-            this.webDTSDebug = new System.Windows.Forms.CheckBox();
-            this.activeDTSDebug = new System.Windows.Forms.CheckBox();
-            this.inventoryDebugLog = new System.Windows.Forms.CheckBox();
-            this.alertSvcDebug = new System.Windows.Forms.CheckBox();
-            this.consoleDebugBox = new System.Windows.Forms.CheckBox();
-            this.restartSvcsButton = new System.Windows.Forms.Button();
+            this.warningsPanel = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.currentSettingsPanel = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.currentHealthPanel = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.mainProgressBar = new System.Windows.Forms.ProgressBar();
+            this.restartSvcsButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.consoleDebugBox = new System.Windows.Forms.CheckBox();
+            this.alertSvcDebug = new System.Windows.Forms.CheckBox();
+            this.inventoryDebugLog = new System.Windows.Forms.CheckBox();
+            this.activeDTSDebug = new System.Windows.Forms.CheckBox();
+            this.webDTSDebug = new System.Windows.Forms.CheckBox();
+            this.DebugButton = new System.Windows.Forms.Button();
+            this.brokerDebug = new System.Windows.Forms.CheckBox();
             this.TabMenu = new System.Windows.Forms.TabControl();
             this.DBCheck = new System.Windows.Forms.TabPage();
-            this.configProgessBar = new System.Windows.Forms.ProgressBar();
-            this.inventoryProgressBar = new System.Windows.Forms.ProgressBar();
-            this.dbProgressBar = new System.Windows.Forms.ProgressBar();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dbCheckAllButton = new System.Windows.Forms.Button();
+            this.dbTableSizesButton = new System.Windows.Forms.Button();
+            this.dbFragButton = new System.Windows.Forms.Button();
+            this.dbDiag = new System.Windows.Forms.Label();
             this.dbInfoButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dbDiag = new System.Windows.Forms.Label();
-            this.dbFragButton = new System.Windows.Forms.Button();
-            this.dbTableSizesButton = new System.Windows.Forms.Button();
-            this.dbCheckAllButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ScheduledMaint = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.currentHealthPanel = new System.Windows.Forms.Panel();
-            this.currentSettingsPanel = new System.Windows.Forms.Panel();
-            this.warningsPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ScheduledMaint = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dbProgressBar = new System.Windows.Forms.ProgressBar();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.flushIISButton = new System.Windows.Forms.Button();
+            this.archiveLogsButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.InvCheck.SuspendLayout();
             this.ConfigCheck.SuspendLayout();
             this.HomePage.SuspendLayout();
+            this.warningsPanel.SuspendLayout();
+            this.currentSettingsPanel.SuspendLayout();
+            this.currentHealthPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.TabMenu.SuspendLayout();
             this.DBCheck.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.currentHealthPanel.SuspendLayout();
-            this.currentSettingsPanel.SuspendLayout();
-            this.warningsPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -150,7 +152,7 @@
             // enterKeyToolStripMenuItem
             // 
             this.enterKeyToolStripMenuItem.Name = "enterKeyToolStripMenuItem";
-            this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.enterKeyToolStripMenuItem.Text = "Enter Key";
             // 
             // exitToolStripMenuItem
@@ -255,6 +257,14 @@
             this.InvCheck.TabIndex = 3;
             this.InvCheck.Text = "Inventory Checker";
             // 
+            // inventoryProgressBar
+            // 
+            this.inventoryProgressBar.Location = new System.Drawing.Point(3, 442);
+            this.inventoryProgressBar.Name = "inventoryProgressBar";
+            this.inventoryProgressBar.Size = new System.Drawing.Size(484, 23);
+            this.inventoryProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.inventoryProgressBar.TabIndex = 11;
+            // 
             // ConfigCheck
             // 
             this.ConfigCheck.BackColor = System.Drawing.SystemColors.Control;
@@ -265,10 +275,20 @@
             this.ConfigCheck.TabIndex = 5;
             this.ConfigCheck.Text = "Config Checker";
             // 
+            // configProgessBar
+            // 
+            this.configProgessBar.Location = new System.Drawing.Point(3, 442);
+            this.configProgessBar.Name = "configProgessBar";
+            this.configProgessBar.Size = new System.Drawing.Size(484, 23);
+            this.configProgessBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.configProgessBar.TabIndex = 11;
+            // 
             // HomePage
             // 
             this.HomePage.BackColor = System.Drawing.SystemColors.Control;
+            this.HomePage.Controls.Add(this.flushIISButton);
             this.HomePage.Controls.Add(this.warningsPanel);
+            this.HomePage.Controls.Add(this.archiveLogsButton);
             this.HomePage.Controls.Add(this.currentSettingsPanel);
             this.HomePage.Controls.Add(this.currentHealthPanel);
             this.HomePage.Controls.Add(this.mainProgressBar);
@@ -281,6 +301,115 @@
             this.HomePage.TabIndex = 0;
             this.HomePage.Text = "Home";
             this.HomePage.Click += new System.EventHandler(this.HomePage_Click);
+            // 
+            // warningsPanel
+            // 
+            this.warningsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.warningsPanel.Controls.Add(this.textBox3);
+            this.warningsPanel.Controls.Add(this.label5);
+            this.warningsPanel.Location = new System.Drawing.Point(334, 6);
+            this.warningsPanel.Name = "warningsPanel";
+            this.warningsPanel.Size = new System.Drawing.Size(148, 209);
+            this.warningsPanel.TabIndex = 12;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.Location = new System.Drawing.Point(-1, 30);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(148, 178);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 23);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Issues Found";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // currentSettingsPanel
+            // 
+            this.currentSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentSettingsPanel.Controls.Add(this.textBox2);
+            this.currentSettingsPanel.Controls.Add(this.label4);
+            this.currentSettingsPanel.Location = new System.Drawing.Point(162, 6);
+            this.currentSettingsPanel.Name = "currentSettingsPanel";
+            this.currentSettingsPanel.Size = new System.Drawing.Size(165, 209);
+            this.currentSettingsPanel.TabIndex = 12;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox2.Location = new System.Drawing.Point(-1, 31);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(165, 177);
+            this.textBox2.TabIndex = 2;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 23);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "General";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // currentHealthPanel
+            // 
+            this.currentHealthPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentHealthPanel.Controls.Add(this.textBox4);
+            this.currentHealthPanel.Controls.Add(this.label3);
+            this.currentHealthPanel.Location = new System.Drawing.Point(6, 6);
+            this.currentHealthPanel.Name = "currentHealthPanel";
+            this.currentHealthPanel.Size = new System.Drawing.Size(148, 209);
+            this.currentHealthPanel.TabIndex = 11;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox4.Location = new System.Drawing.Point(-1, 30);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(148, 178);
+            this.textBox4.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Core Health";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mainProgressBar
+            // 
+            this.mainProgressBar.Location = new System.Drawing.Point(3, 442);
+            this.mainProgressBar.Name = "mainProgressBar";
+            this.mainProgressBar.Size = new System.Drawing.Size(484, 23);
+            this.mainProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.mainProgressBar.TabIndex = 10;
+            // 
+            // restartSvcsButton
+            // 
+            this.restartSvcsButton.Location = new System.Drawing.Point(162, 232);
+            this.restartSvcsButton.Name = "restartSvcsButton";
+            this.restartSvcsButton.Size = new System.Drawing.Size(165, 23);
+            this.restartSvcsButton.TabIndex = 9;
+            this.restartSvcsButton.Text = "Restart All Landesk Services";
+            this.restartSvcsButton.UseVisualStyleBackColor = true;
+            this.restartSvcsButton.Click += new System.EventHandler(this.restartSvcsButton_Click);
             // 
             // panel1
             // 
@@ -296,63 +425,17 @@
             this.panel1.Size = new System.Drawing.Size(490, 176);
             this.panel1.TabIndex = 8;
             // 
-            // brokerDebug
+            // consoleDebugBox
             // 
-            this.brokerDebug.AutoSize = true;
-            this.brokerDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brokerDebug.Location = new System.Drawing.Point(176, 59);
-            this.brokerDebug.Name = "brokerDebug";
-            this.brokerDebug.Size = new System.Drawing.Size(116, 20);
-            this.brokerDebug.TabIndex = 7;
-            this.brokerDebug.Text = "Broker Service";
-            this.brokerDebug.UseVisualStyleBackColor = true;
-            this.brokerDebug.CheckedChanged += new System.EventHandler(this.brokerDebug_CheckedChanged);
-            // 
-            // DebugButton
-            // 
-            this.DebugButton.Location = new System.Drawing.Point(147, 106);
-            this.DebugButton.Name = "DebugButton";
-            this.DebugButton.Size = new System.Drawing.Size(180, 23);
-            this.DebugButton.TabIndex = 0;
-            this.DebugButton.Text = "Enable Debug Logs For Above";
-            this.DebugButton.UseVisualStyleBackColor = true;
-            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
-            // 
-            // webDTSDebug
-            // 
-            this.webDTSDebug.AutoSize = true;
-            this.webDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.webDTSDebug.Location = new System.Drawing.Point(176, 21);
-            this.webDTSDebug.Name = "webDTSDebug";
-            this.webDTSDebug.Size = new System.Drawing.Size(125, 20);
-            this.webDTSDebug.TabIndex = 2;
-            this.webDTSDebug.Text = "DTS WebMacro";
-            this.webDTSDebug.UseVisualStyleBackColor = true;
-            this.webDTSDebug.CheckedChanged += new System.EventHandler(this.webDTSDebug_CheckedChanged);
-            // 
-            // activeDTSDebug
-            // 
-            this.activeDTSDebug.AutoSize = true;
-            this.activeDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeDTSDebug.Location = new System.Drawing.Point(349, 21);
-            this.activeDTSDebug.Name = "activeDTSDebug";
-            this.activeDTSDebug.Size = new System.Drawing.Size(133, 20);
-            this.activeDTSDebug.TabIndex = 3;
-            this.activeDTSDebug.Text = "Active DTS Rules";
-            this.activeDTSDebug.UseVisualStyleBackColor = true;
-            this.activeDTSDebug.CheckedChanged += new System.EventHandler(this.activeDTSDebug_CheckedChanged);
-            // 
-            // inventoryDebugLog
-            // 
-            this.inventoryDebugLog.AutoSize = true;
-            this.inventoryDebugLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventoryDebugLog.Location = new System.Drawing.Point(6, 59);
-            this.inventoryDebugLog.Name = "inventoryDebugLog";
-            this.inventoryDebugLog.Size = new System.Drawing.Size(124, 20);
-            this.inventoryDebugLog.TabIndex = 1;
-            this.inventoryDebugLog.Text = "Inventory Server";
-            this.inventoryDebugLog.UseVisualStyleBackColor = true;
-            this.inventoryDebugLog.CheckedChanged += new System.EventHandler(this.inventoryDebugLog_CheckedChanged);
+            this.consoleDebugBox.AutoSize = true;
+            this.consoleDebugBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consoleDebugBox.Location = new System.Drawing.Point(6, 21);
+            this.consoleDebugBox.Name = "consoleDebugBox";
+            this.consoleDebugBox.Size = new System.Drawing.Size(135, 20);
+            this.consoleDebugBox.TabIndex = 0;
+            this.consoleDebugBox.Text = "Windows Console";
+            this.consoleDebugBox.UseVisualStyleBackColor = true;
+            this.consoleDebugBox.CheckedChanged += new System.EventHandler(this.consoleDebugBox_CheckedChanged);
             // 
             // alertSvcDebug
             // 
@@ -366,35 +449,63 @@
             this.alertSvcDebug.UseVisualStyleBackColor = true;
             this.alertSvcDebug.CheckedChanged += new System.EventHandler(this.alertSvc_checkChanged);
             // 
-            // consoleDebugBox
+            // inventoryDebugLog
             // 
-            this.consoleDebugBox.AutoSize = true;
-            this.consoleDebugBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consoleDebugBox.Location = new System.Drawing.Point(6, 21);
-            this.consoleDebugBox.Name = "consoleDebugBox";
-            this.consoleDebugBox.Size = new System.Drawing.Size(135, 20);
-            this.consoleDebugBox.TabIndex = 0;
-            this.consoleDebugBox.Text = "Windows Console";
-            this.consoleDebugBox.UseVisualStyleBackColor = true;
-            this.consoleDebugBox.CheckedChanged += new System.EventHandler(this.consoleDebugBox_CheckedChanged);
+            this.inventoryDebugLog.AutoSize = true;
+            this.inventoryDebugLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryDebugLog.Location = new System.Drawing.Point(6, 59);
+            this.inventoryDebugLog.Name = "inventoryDebugLog";
+            this.inventoryDebugLog.Size = new System.Drawing.Size(124, 20);
+            this.inventoryDebugLog.TabIndex = 1;
+            this.inventoryDebugLog.Text = "Inventory Server";
+            this.inventoryDebugLog.UseVisualStyleBackColor = true;
+            this.inventoryDebugLog.CheckedChanged += new System.EventHandler(this.inventoryDebugLog_CheckedChanged);
             // 
-            // restartSvcsButton
+            // activeDTSDebug
             // 
-            this.restartSvcsButton.Location = new System.Drawing.Point(147, 232);
-            this.restartSvcsButton.Name = "restartSvcsButton";
-            this.restartSvcsButton.Size = new System.Drawing.Size(180, 23);
-            this.restartSvcsButton.TabIndex = 9;
-            this.restartSvcsButton.Text = "Restart All Landesk Services";
-            this.restartSvcsButton.UseVisualStyleBackColor = true;
-            this.restartSvcsButton.Click += new System.EventHandler(this.restartSvcsButton_Click);
+            this.activeDTSDebug.AutoSize = true;
+            this.activeDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeDTSDebug.Location = new System.Drawing.Point(349, 21);
+            this.activeDTSDebug.Name = "activeDTSDebug";
+            this.activeDTSDebug.Size = new System.Drawing.Size(133, 20);
+            this.activeDTSDebug.TabIndex = 3;
+            this.activeDTSDebug.Text = "Active DTS Rules";
+            this.activeDTSDebug.UseVisualStyleBackColor = true;
+            this.activeDTSDebug.CheckedChanged += new System.EventHandler(this.activeDTSDebug_CheckedChanged);
             // 
-            // mainProgressBar
+            // webDTSDebug
             // 
-            this.mainProgressBar.Location = new System.Drawing.Point(3, 442);
-            this.mainProgressBar.Name = "mainProgressBar";
-            this.mainProgressBar.Size = new System.Drawing.Size(484, 23);
-            this.mainProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.mainProgressBar.TabIndex = 10;
+            this.webDTSDebug.AutoSize = true;
+            this.webDTSDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.webDTSDebug.Location = new System.Drawing.Point(176, 21);
+            this.webDTSDebug.Name = "webDTSDebug";
+            this.webDTSDebug.Size = new System.Drawing.Size(125, 20);
+            this.webDTSDebug.TabIndex = 2;
+            this.webDTSDebug.Text = "DTS WebMacro";
+            this.webDTSDebug.UseVisualStyleBackColor = true;
+            this.webDTSDebug.CheckedChanged += new System.EventHandler(this.webDTSDebug_CheckedChanged);
+            // 
+            // DebugButton
+            // 
+            this.DebugButton.Location = new System.Drawing.Point(162, 111);
+            this.DebugButton.Name = "DebugButton";
+            this.DebugButton.Size = new System.Drawing.Size(165, 23);
+            this.DebugButton.TabIndex = 0;
+            this.DebugButton.Text = "Enable Debug Logs For Above";
+            this.DebugButton.UseVisualStyleBackColor = true;
+            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
+            // 
+            // brokerDebug
+            // 
+            this.brokerDebug.AutoSize = true;
+            this.brokerDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brokerDebug.Location = new System.Drawing.Point(176, 59);
+            this.brokerDebug.Name = "brokerDebug";
+            this.brokerDebug.Size = new System.Drawing.Size(116, 20);
+            this.brokerDebug.TabIndex = 7;
+            this.brokerDebug.Text = "Broker Service";
+            this.brokerDebug.UseVisualStyleBackColor = true;
+            this.brokerDebug.CheckedChanged += new System.EventHandler(this.brokerDebug_CheckedChanged);
             // 
             // TabMenu
             // 
@@ -421,29 +532,66 @@
             this.DBCheck.TabIndex = 6;
             this.DBCheck.Text = "Database Maintenance";
             // 
-            // configProgessBar
+            // panel3
             // 
-            this.configProgessBar.Location = new System.Drawing.Point(3, 442);
-            this.configProgessBar.Name = "configProgessBar";
-            this.configProgessBar.Size = new System.Drawing.Size(484, 23);
-            this.configProgessBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.configProgessBar.TabIndex = 11;
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.dbCheckAllButton);
+            this.panel3.Controls.Add(this.dbTableSizesButton);
+            this.panel3.Controls.Add(this.dbFragButton);
+            this.panel3.Controls.Add(this.dbDiag);
+            this.panel3.Controls.Add(this.dbInfoButton);
+            this.panel3.Location = new System.Drawing.Point(3, 225);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(484, 211);
+            this.panel3.TabIndex = 14;
             // 
-            // inventoryProgressBar
+            // textBox1
             // 
-            this.inventoryProgressBar.Location = new System.Drawing.Point(3, 442);
-            this.inventoryProgressBar.Name = "inventoryProgressBar";
-            this.inventoryProgressBar.Size = new System.Drawing.Size(484, 23);
-            this.inventoryProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.inventoryProgressBar.TabIndex = 11;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(162, 38);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(303, 150);
+            this.textBox1.TabIndex = 17;
             // 
-            // dbProgressBar
+            // dbCheckAllButton
             // 
-            this.dbProgressBar.Location = new System.Drawing.Point(3, 442);
-            this.dbProgressBar.Name = "dbProgressBar";
-            this.dbProgressBar.Size = new System.Drawing.Size(484, 23);
-            this.dbProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.dbProgressBar.TabIndex = 11;
+            this.dbCheckAllButton.Location = new System.Drawing.Point(5, 165);
+            this.dbCheckAllButton.Name = "dbCheckAllButton";
+            this.dbCheckAllButton.Size = new System.Drawing.Size(138, 23);
+            this.dbCheckAllButton.TabIndex = 16;
+            this.dbCheckAllButton.Text = "Check All";
+            this.dbCheckAllButton.UseVisualStyleBackColor = true;
+            // 
+            // dbTableSizesButton
+            // 
+            this.dbTableSizesButton.Location = new System.Drawing.Point(5, 122);
+            this.dbTableSizesButton.Name = "dbTableSizesButton";
+            this.dbTableSizesButton.Size = new System.Drawing.Size(138, 23);
+            this.dbTableSizesButton.TabIndex = 15;
+            this.dbTableSizesButton.Text = "Check Table Sizes";
+            this.dbTableSizesButton.UseVisualStyleBackColor = true;
+            // 
+            // dbFragButton
+            // 
+            this.dbFragButton.Location = new System.Drawing.Point(5, 80);
+            this.dbFragButton.Name = "dbFragButton";
+            this.dbFragButton.Size = new System.Drawing.Size(138, 23);
+            this.dbFragButton.TabIndex = 14;
+            this.dbFragButton.Text = "Check Fragmentation";
+            this.dbFragButton.UseVisualStyleBackColor = true;
+            // 
+            // dbDiag
+            // 
+            this.dbDiag.AutoSize = true;
+            this.dbDiag.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dbDiag.Location = new System.Drawing.Point(145, 0);
+            this.dbDiag.Name = "dbDiag";
+            this.dbDiag.Size = new System.Drawing.Size(189, 24);
+            this.dbDiag.TabIndex = 13;
+            this.dbDiag.Text = "Database Diagnostics";
             // 
             // dbInfoButton
             // 
@@ -471,135 +619,23 @@
             this.panel2.Size = new System.Drawing.Size(484, 219);
             this.panel2.TabIndex = 13;
             // 
-            // panel3
+            // label2
             // 
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.dbCheckAllButton);
-            this.panel3.Controls.Add(this.dbTableSizesButton);
-            this.panel3.Controls.Add(this.dbFragButton);
-            this.panel3.Controls.Add(this.dbDiag);
-            this.panel3.Controls.Add(this.dbInfoButton);
-            this.panel3.Location = new System.Drawing.Point(3, 225);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(484, 211);
-            this.panel3.TabIndex = 14;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(159, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 15);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Scheduled Maintenance Tasks";
             // 
-            // dbDiag
+            // ScheduledMaint
             // 
-            this.dbDiag.AutoSize = true;
-            this.dbDiag.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbDiag.Location = new System.Drawing.Point(145, 0);
-            this.dbDiag.Name = "dbDiag";
-            this.dbDiag.Size = new System.Drawing.Size(189, 24);
-            this.dbDiag.TabIndex = 13;
-            this.dbDiag.Text = "Database Diagnostics";
-            // 
-            // dbFragButton
-            // 
-            this.dbFragButton.Location = new System.Drawing.Point(5, 80);
-            this.dbFragButton.Name = "dbFragButton";
-            this.dbFragButton.Size = new System.Drawing.Size(138, 23);
-            this.dbFragButton.TabIndex = 14;
-            this.dbFragButton.Text = "Check Fragmentation";
-            this.dbFragButton.UseVisualStyleBackColor = true;
-            // 
-            // dbTableSizesButton
-            // 
-            this.dbTableSizesButton.Location = new System.Drawing.Point(5, 122);
-            this.dbTableSizesButton.Name = "dbTableSizesButton";
-            this.dbTableSizesButton.Size = new System.Drawing.Size(138, 23);
-            this.dbTableSizesButton.TabIndex = 15;
-            this.dbTableSizesButton.Text = "Check Table Sizes";
-            this.dbTableSizesButton.UseVisualStyleBackColor = true;
-            // 
-            // dbCheckAllButton
-            // 
-            this.dbCheckAllButton.Location = new System.Drawing.Point(5, 165);
-            this.dbCheckAllButton.Name = "dbCheckAllButton";
-            this.dbCheckAllButton.Size = new System.Drawing.Size(138, 23);
-            this.dbCheckAllButton.TabIndex = 16;
-            this.dbCheckAllButton.Text = "Check All";
-            this.dbCheckAllButton.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(162, 38);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(303, 150);
-            this.textBox1.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 24);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Database Maintenance";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(21, 42);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 17);
-            this.checkBox1.TabIndex = 24;
-            this.checkBox1.Text = "Rebuild Indexes";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(21, 134);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(132, 17);
-            this.checkBox2.TabIndex = 25;
-            this.checkBox2.Text = "Purge Security Activity";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(21, 88);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(91, 17);
-            this.checkBox3.TabIndex = 26;
-            this.checkBox3.Text = "Purge FileInfo";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(21, 65);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(120, 17);
-            this.checkBox5.TabIndex = 28;
-            this.checkBox5.Text = "Purge Patch History";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(21, 111);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(95, 17);
-            this.checkBox8.TabIndex = 29;
-            this.checkBox8.Text = "Purge Auditing";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(345, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 54);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Run Now";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ScheduledMaint.FormattingEnabled = true;
+            this.ScheduledMaint.Location = new System.Drawing.Point(159, 55);
+            this.ScheduledMaint.Name = "ScheduledMaint";
+            this.ScheduledMaint.Size = new System.Drawing.Size(175, 147);
+            this.ScheduledMaint.TabIndex = 35;
             // 
             // button2
             // 
@@ -611,110 +647,101 @@
             this.button2.Text = "Schedule";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // ScheduledMaint
+            // button1
             // 
-            this.ScheduledMaint.FormattingEnabled = true;
-            this.ScheduledMaint.Location = new System.Drawing.Point(159, 55);
-            this.ScheduledMaint.Name = "ScheduledMaint";
-            this.ScheduledMaint.Size = new System.Drawing.Size(175, 147);
-            this.ScheduledMaint.TabIndex = 35;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(345, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 54);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Run Now";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // checkBox8
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(159, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 15);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Scheduled Maintenance Tasks";
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(21, 111);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(95, 17);
+            this.checkBox8.TabIndex = 29;
+            this.checkBox8.Text = "Purge Auditing";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
-            // currentHealthPanel
+            // checkBox5
             // 
-            this.currentHealthPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.currentHealthPanel.Controls.Add(this.textBox4);
-            this.currentHealthPanel.Controls.Add(this.label3);
-            this.currentHealthPanel.Location = new System.Drawing.Point(6, 6);
-            this.currentHealthPanel.Name = "currentHealthPanel";
-            this.currentHealthPanel.Size = new System.Drawing.Size(148, 209);
-            this.currentHealthPanel.TabIndex = 11;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(21, 65);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(120, 17);
+            this.checkBox5.TabIndex = 28;
+            this.checkBox5.Text = "Purge Patch History";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // currentSettingsPanel
+            // checkBox3
             // 
-            this.currentSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.currentSettingsPanel.Controls.Add(this.textBox2);
-            this.currentSettingsPanel.Controls.Add(this.label4);
-            this.currentSettingsPanel.Location = new System.Drawing.Point(162, 6);
-            this.currentSettingsPanel.Name = "currentSettingsPanel";
-            this.currentSettingsPanel.Size = new System.Drawing.Size(165, 209);
-            this.currentSettingsPanel.TabIndex = 12;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(21, 88);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(91, 17);
+            this.checkBox3.TabIndex = 26;
+            this.checkBox3.Text = "Purge FileInfo";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // warningsPanel
+            // checkBox2
             // 
-            this.warningsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.warningsPanel.Controls.Add(this.textBox3);
-            this.warningsPanel.Controls.Add(this.label5);
-            this.warningsPanel.Location = new System.Drawing.Point(334, 6);
-            this.warningsPanel.Name = "warningsPanel";
-            this.warningsPanel.Size = new System.Drawing.Size(148, 209);
-            this.warningsPanel.TabIndex = 12;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(21, 134);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(132, 17);
+            this.checkBox2.TabIndex = 25;
+            this.checkBox2.Text = "Purge Security Activity";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // checkBox1
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Core Health";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 42);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 17);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "Rebuild Indexes";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // label1
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 23);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "General";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(145, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Database Maintenance";
             // 
-            // label5
+            // dbProgressBar
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 23);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Issues Found";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dbProgressBar.Location = new System.Drawing.Point(3, 442);
+            this.dbProgressBar.Name = "dbProgressBar";
+            this.dbProgressBar.Size = new System.Drawing.Size(484, 23);
+            this.dbProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.dbProgressBar.TabIndex = 11;
             // 
-            // textBox2
+            // flushIISButton
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Location = new System.Drawing.Point(-1, 31);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 177);
-            this.textBox2.TabIndex = 2;
+            this.flushIISButton.Location = new System.Drawing.Point(6, 232);
+            this.flushIISButton.Name = "flushIISButton";
+            this.flushIISButton.Size = new System.Drawing.Size(148, 23);
+            this.flushIISButton.TabIndex = 13;
+            this.flushIISButton.Text = "Flush IIS";
+            this.flushIISButton.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // archiveLogsButton
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.Location = new System.Drawing.Point(-1, 30);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 178);
-            this.textBox3.TabIndex = 3;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox4.Location = new System.Drawing.Point(-1, 30);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 178);
-            this.textBox4.TabIndex = 4;
+            this.archiveLogsButton.Location = new System.Drawing.Point(334, 232);
+            this.archiveLogsButton.Name = "archiveLogsButton";
+            this.archiveLogsButton.Size = new System.Drawing.Size(144, 23);
+            this.archiveLogsButton.TabIndex = 14;
+            this.archiveLogsButton.Text = "Archive Logs";
+            this.archiveLogsButton.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -734,21 +761,21 @@
             this.InvCheck.ResumeLayout(false);
             this.ConfigCheck.ResumeLayout(false);
             this.HomePage.ResumeLayout(false);
+            this.warningsPanel.ResumeLayout(false);
+            this.warningsPanel.PerformLayout();
+            this.currentSettingsPanel.ResumeLayout(false);
+            this.currentSettingsPanel.PerformLayout();
+            this.currentHealthPanel.ResumeLayout(false);
+            this.currentHealthPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.TabMenu.ResumeLayout(false);
             this.DBCheck.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.currentHealthPanel.ResumeLayout(false);
-            this.currentHealthPanel.PerformLayout();
-            this.currentSettingsPanel.ResumeLayout(false);
-            this.currentSettingsPanel.PerformLayout();
-            this.warningsPanel.ResumeLayout(false);
-            this.warningsPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -823,6 +850,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button flushIISButton;
+        private System.Windows.Forms.Button archiveLogsButton;
     }
 }
 
