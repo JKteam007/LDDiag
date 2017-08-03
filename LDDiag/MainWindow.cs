@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceProcess;
+using System.Threading;
 //using STDiag;
 
 namespace STDiag
@@ -20,44 +21,33 @@ namespace STDiag
         private static readonly ILog NativeLogger = log4net.LogManager.GetLogger("Native"); //Used to log exceptions and background info
         private static readonly ILog ManagedLogger = log4net.LogManager.GetLogger("MainWindow"); //Used to log human readable output
 
+        private Thread csThread;
 
-        public string ldhome;
+        private bool isCore;
 
         private int totalcheckedBoxes = 0;
         public MainWindow()
         {
             InitializeComponent();
             log4net.Config.XmlConfigurator.Configure();
-            NativeLogger.Info("Main Window Loaded");
+            Debug.WriteLine("Main Window Loaded");
 
-
-            if (Environment.GetEnvironmentVariable("LDMS_HOME") != null)
-            {
-                //set variable to LDMS_HOME variable if valid
-                ldhome = System.Environment.GetEnvironmentVariable("%LDMS_HOME%");
-            }
-            else
-            {
-                //if not on a Core, sets ldhome to current running directory and warns user
-                MessageBox.Show("Could not detect Core install path.\n" +
-                    "The current directory will be used instead.\n", "Install Directory Not Found!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                ldhome = System.Environment.CurrentDirectory + "\\";
-            }
+            ManagedLogger.Info("LDDiag loaded. Version is: " + Environment.Version);
 
             TabMenu.TabPages.Remove(ConfigCheck);
+            TabMenu.TabPages.Remove(InvCheck);
 
+            isCore = checkIsCore();
 
         }
 
-        public void updateDMLogBox(string message)
+        private bool checkIsCore()
         {
-            message = message + System.Environment.NewLine;
+            //Check to see if configured Core is actually a Core.
+
+
+            return false;
         }
-
-
-
 
         private void restartSvcsButton_Click(object sender, EventArgs e)
         {
@@ -94,159 +84,166 @@ namespace STDiag
         {
             ServiceController scm;
 
-            if (consoleDebugBox.Checked)
+            if (isCore)
             {
-                try
-                {                
-                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\Console.exe", "logVerbose", "1", "DWORD");
-                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\Console.exe", "logXTrace", "1", "DWORD");
-                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\Console.exe", "showSource", "1", "DWORD");
-                }
-                catch(Exception ex)
-                {
-                    ManagedLogger.Error("Failed to enable Console.exe debug logging");
-                    NativeLogger.Error(ex.Data.ToString());
-                }
-            }
-            if (inventoryDebugLog.Checked)
-            {
-                try
-                {
 
-
-                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\LDInv32.exe", "logVerbose", "1", "DWORD");
-                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\LDInv32.exe", "logXTrace", "1", "DWORD");
-                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\LDInv32.exe", "showSource", "1", "DWORD");
-                }
-                catch(Exception ex)
-                {
-                    ManagedLogger.Error("Failed to set registry keys to enable LDInv32.exe debug logging");
-                    NativeLogger.Error(ex.Data.ToString());
-                }
-                scm = new ServiceController("Landesk Inventory Server");
-
-                
-                if (scm.Status == ServiceControllerStatus.Running)
+                if (consoleDebugBox.Checked)
                 {
                     try
                     {
-                        scm.Stop();
-                    }
-                    catch(Exception ex)
-                    {
-                        ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
-                        NativeLogger.Error(ex.Data.ToString());
-                    }
-                    scm.WaitForStatus(ServiceControllerStatus.Stopped);
-                    try
-                    {
-
-                        scm.Start();
-                    }
-                    catch(Exception ey)
-                    {
-                        ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
-                        NativeLogger.Error(ey.Data.ToString());
-                    }
-                }
-                else
-                {
-                    scm.Start();
-
-                }
-            }
-
-            if (webDTSDebug.Checked)
-            {
-
-                Util.setRegKey("\\Software\\Landesk\\Managed Planet\\Data Translation Services", "WebDebug", "1", "DWORD");
-
-            }
-
-            if (brokerDebug.Checked)
-            {
-
-                Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\BrokerService.exe", "logVerbose", "1", "DWORD");
-                Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\BrokerService.exe", "logXTrace", "1", "DWORD");
-                Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\BrokerService.exe", "showSource", "1", "DWORD");
-                scm = new ServiceController("LDGSB");
-                if (scm.Status == ServiceControllerStatus.Running)
-                {
-                    try
-                    {
-                        scm.Stop();
+                        Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\Console.exe", "logVerbose", "1", "DWORD");
+                        Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\Console.exe", "logXTrace", "1", "DWORD");
+                        Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\Console.exe", "showSource", "1", "DWORD");
                     }
                     catch (Exception ex)
                     {
-                        ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
+                        ManagedLogger.Error("Failed to enable Console.exe debug logging");
                         NativeLogger.Error(ex.Data.ToString());
                     }
-                    scm.WaitForStatus(ServiceControllerStatus.Stopped);
-                    try
-                    {
-
-                        scm.Start();
-                    }
-                    catch (Exception ey)
-                    {
-                        ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
-                        NativeLogger.Error(ey.Data.ToString());
-                    }
                 }
-                else
-                {
-                    scm.Start();
-
-                }
-            }
-
-            if (activeDTSDebug.Checked)
-            {
-                Util.createRegKey("\\SOFTWARE\\Wow6432Node\\Managed Planet\\Core", "DebugLevel", "DWORD", "4");
-            }
-
-            if (alertSvcDebug.Checked)
-            {
-
-                Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\AlertService.exe", "logVerbose", "1", "DWORD");
-                Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\AlertService.exe", "logXTrace", "1", "DWORD");
-                Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\AlertService.exe", "showSource", "1", "DWORD");
-                scm = new ServiceController("CBA8Alert");
-                if (scm.Status == ServiceControllerStatus.Running)
+                if (inventoryDebugLog.Checked)
                 {
                     try
                     {
-                        scm.Stop();
+
+
+                        Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\LDInv32.exe", "logVerbose", "1", "DWORD");
+                        Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\LDInv32.exe", "logXTrace", "1", "DWORD");
+                        Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\LDInv32.exe", "showSource", "1", "DWORD");
                     }
                     catch (Exception ex)
                     {
-                        ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
+                        ManagedLogger.Error("Failed to set registry keys to enable LDInv32.exe debug logging");
                         NativeLogger.Error(ex.Data.ToString());
                     }
-                    scm.WaitForStatus(ServiceControllerStatus.Stopped);
-                    try
-                    {
+                    scm = new ServiceController("Landesk Inventory Server");
 
+
+                    if (scm.Status == ServiceControllerStatus.Running)
+                    {
+                        try
+                        {
+                            scm.Stop();
+                        }
+                        catch (Exception ex)
+                        {
+                            ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
+                            NativeLogger.Error(ex.Data.ToString());
+                        }
+                        scm.WaitForStatus(ServiceControllerStatus.Stopped);
+                        try
+                        {
+
+                            scm.Start();
+                        }
+                        catch (Exception ey)
+                        {
+                            ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
+                            NativeLogger.Error(ey.Data.ToString());
+                        }
+                    }
+                    else
+                    {
                         scm.Start();
-                    }
-                    catch (Exception ey)
-                    {
-                        ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
-                        NativeLogger.Error(ey.Data.ToString());
+
                     }
                 }
-                else
+
+                if (webDTSDebug.Checked)
                 {
-                    scm.Start();
+
+                    Util.setRegKey("\\Software\\Landesk\\Managed Planet\\Data Translation Services", "WebDebug", "1", "DWORD");
 
                 }
+
+                if (brokerDebug.Checked)
+                {
+
+                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\BrokerService.exe", "logVerbose", "1", "DWORD");
+                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\BrokerService.exe", "logXTrace", "1", "DWORD");
+                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\BrokerService.exe", "showSource", "1", "DWORD");
+                    scm = new ServiceController("LDGSB");
+                    if (scm.Status == ServiceControllerStatus.Running)
+                    {
+                        try
+                        {
+                            scm.Stop();
+                        }
+                        catch (Exception ex)
+                        {
+                            ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
+                            NativeLogger.Error(ex.Data.ToString());
+                        }
+                        scm.WaitForStatus(ServiceControllerStatus.Stopped);
+                        try
+                        {
+
+                            scm.Start();
+                        }
+                        catch (Exception ey)
+                        {
+                            ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
+                            NativeLogger.Error(ey.Data.ToString());
+                        }
+                    }
+                    else
+                    {
+                        scm.Start();
+
+                    }
+                }
+
+                if (activeDTSDebug.Checked)
+                {
+                    Util.createRegKey("\\SOFTWARE\\Wow6432Node\\Managed Planet\\Core", "DebugLevel", "DWORD", "4");
+                }
+
+                if (alertSvcDebug.Checked)
+                {
+
+                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\AlertService.exe", "logVerbose", "1", "DWORD");
+                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\AlertService.exe", "logXTrace", "1", "DWORD");
+                    Util.setRegKey("\\Software\\Landesk\\ManagementSuite\\LogOptions\\AlertService.exe", "showSource", "1", "DWORD");
+                    scm = new ServiceController("CBA8Alert");
+                    if (scm.Status == ServiceControllerStatus.Running)
+                    {
+                        try
+                        {
+                            scm.Stop();
+                        }
+                        catch (Exception ex)
+                        {
+                            ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
+                            NativeLogger.Error(ex.Data.ToString());
+                        }
+                        scm.WaitForStatus(ServiceControllerStatus.Stopped);
+                        try
+                        {
+
+                            scm.Start();
+                        }
+                        catch (Exception ey)
+                        {
+                            ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
+                            NativeLogger.Error(ey.Data.ToString());
+                        }
+                    }
+                    else
+                    {
+                        scm.Start();
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("A valid core hasn't been specified. This action cannot be preformed.", "Core Not Found!",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
             }
 
         }
 
-
-       
-        
         private void webDTSDebug_CheckedChanged(object sender, EventArgs e)
         {
             if (webDTSDebug.Checked)
@@ -344,8 +341,58 @@ namespace STDiag
         {
 
         }
+
+        private void enterKeyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NativeLogger.Info("Application shutdown requested.");
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void coreSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Debug.WriteLine("Core Settings clicked");
+            csThread = new Thread(getCoreSettings);
+            csThread.Start();
+
+        }
+
+        public void getCoreSettings()
+        {
+          
+
+            CoreSettings initCoreSettings = new CoreSettings();
+            Application.Run(initCoreSettings);
+           // initCoreSettings.submitButton.Click += initCoreSettings.submitButton_Click;           
+
+        }
+        private void closeCoreSettings(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    string[] coreInfo = initCoreSettings.getSettings();
+
+            //    foreach (string st in coreInfo)
+            //    {
+            //        NativeLogger.Debug(st);
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    ManagedLogger.Error("Error saving core settings: " + ex.Data.ToString());
+            //}
+            Debug.WriteLine("Aborting thread");
+            csThread.Abort();
+        }
     }
 }
+
 
 
 

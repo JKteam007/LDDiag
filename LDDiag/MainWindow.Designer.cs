@@ -57,9 +57,11 @@
             this.ConfigCheck = new System.Windows.Forms.TabPage();
             this.configProgessBar = new System.Windows.Forms.ProgressBar();
             this.HomePage = new System.Windows.Forms.TabPage();
+            this.flushIISButton = new System.Windows.Forms.Button();
             this.warningsPanel = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.archiveLogsButton = new System.Windows.Forms.Button();
             this.currentSettingsPanel = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -98,8 +100,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dbProgressBar = new System.Windows.Forms.ProgressBar();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.flushIISButton = new System.Windows.Forms.Button();
-            this.archiveLogsButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.InvCheck.SuspendLayout();
             this.ConfigCheck.SuspendLayout();
@@ -146,7 +146,7 @@
             this.enterKeyToolStripMenuItem});
             this.supportOptionsToolStripMenuItem.Name = "supportOptionsToolStripMenuItem";
             this.supportOptionsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.supportOptionsToolStripMenuItem.Text = "Support Options";
+            this.supportOptionsToolStripMenuItem.Text = "Developer Mode";
             this.supportOptionsToolStripMenuItem.Visible = false;
             // 
             // enterKeyToolStripMenuItem
@@ -154,12 +154,14 @@
             this.enterKeyToolStripMenuItem.Name = "enterKeyToolStripMenuItem";
             this.enterKeyToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.enterKeyToolStripMenuItem.Text = "Enter Key";
+            this.enterKeyToolStripMenuItem.Click += new System.EventHandler(this.enterKeyToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // configureToolStripMenuItem
             // 
@@ -175,6 +177,7 @@
             this.coreSettingsToolStripMenuItem.Name = "coreSettingsToolStripMenuItem";
             this.coreSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.coreSettingsToolStripMenuItem.Text = "Core Settings";
+            this.coreSettingsToolStripMenuItem.Click += new System.EventHandler(this.coreSettingsToolStripMenuItem_Click);
             // 
             // credentialsToolStripMenuItem
             // 
@@ -302,6 +305,15 @@
             this.HomePage.Text = "Home";
             this.HomePage.Click += new System.EventHandler(this.HomePage_Click);
             // 
+            // flushIISButton
+            // 
+            this.flushIISButton.Location = new System.Drawing.Point(6, 232);
+            this.flushIISButton.Name = "flushIISButton";
+            this.flushIISButton.Size = new System.Drawing.Size(148, 23);
+            this.flushIISButton.TabIndex = 13;
+            this.flushIISButton.Text = "Flush IIS";
+            this.flushIISButton.UseVisualStyleBackColor = true;
+            // 
             // warningsPanel
             // 
             this.warningsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -331,6 +343,15 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Issues Found";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // archiveLogsButton
+            // 
+            this.archiveLogsButton.Location = new System.Drawing.Point(334, 232);
+            this.archiveLogsButton.Name = "archiveLogsButton";
+            this.archiveLogsButton.Size = new System.Drawing.Size(144, 23);
+            this.archiveLogsButton.TabIndex = 14;
+            this.archiveLogsButton.Text = "Archive Logs";
+            this.archiveLogsButton.UseVisualStyleBackColor = true;
             // 
             // currentSettingsPanel
             // 
@@ -724,24 +745,6 @@
             this.dbProgressBar.Size = new System.Drawing.Size(484, 23);
             this.dbProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.dbProgressBar.TabIndex = 11;
-            // 
-            // flushIISButton
-            // 
-            this.flushIISButton.Location = new System.Drawing.Point(6, 232);
-            this.flushIISButton.Name = "flushIISButton";
-            this.flushIISButton.Size = new System.Drawing.Size(148, 23);
-            this.flushIISButton.TabIndex = 13;
-            this.flushIISButton.Text = "Flush IIS";
-            this.flushIISButton.UseVisualStyleBackColor = true;
-            // 
-            // archiveLogsButton
-            // 
-            this.archiveLogsButton.Location = new System.Drawing.Point(334, 232);
-            this.archiveLogsButton.Name = "archiveLogsButton";
-            this.archiveLogsButton.Size = new System.Drawing.Size(144, 23);
-            this.archiveLogsButton.TabIndex = 14;
-            this.archiveLogsButton.Text = "Archive Logs";
-            this.archiveLogsButton.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
