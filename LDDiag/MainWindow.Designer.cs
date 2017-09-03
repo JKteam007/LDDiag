@@ -1,4 +1,6 @@
-﻿namespace STDiag
+﻿using System;
+
+namespace LDDiag
 {
     partial class MainWindow
     {
@@ -38,9 +40,6 @@
             this.supportOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.coreSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.credentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateLDDiagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateChangeDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,7 +98,10 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dbProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ConfigTab = new System.Windows.Forms.TabPage();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nodeCountLabel = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.InvCheck.SuspendLayout();
             this.ConfigCheck.SuspendLayout();
@@ -112,6 +114,7 @@
             this.DBCheck.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.ConfigTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,7 +124,6 @@
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.configureToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -162,28 +164,6 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // configureToolStripMenuItem
-            // 
-            this.configureToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.coreSettingsToolStripMenuItem,
-            this.credentialsToolStripMenuItem});
-            this.configureToolStripMenuItem.Name = "configureToolStripMenuItem";
-            this.configureToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.configureToolStripMenuItem.Text = "Configure";
-            // 
-            // coreSettingsToolStripMenuItem
-            // 
-            this.coreSettingsToolStripMenuItem.Name = "coreSettingsToolStripMenuItem";
-            this.coreSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.coreSettingsToolStripMenuItem.Text = "Core Settings";
-            this.coreSettingsToolStripMenuItem.Click += new System.EventHandler(this.coreSettingsToolStripMenuItem_Click);
-            // 
-            // credentialsToolStripMenuItem
-            // 
-            this.credentialsToolStripMenuItem.Name = "credentialsToolStripMenuItem";
-            this.credentialsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.credentialsToolStripMenuItem.Text = "Credentials";
             // 
             // settingsToolStripMenuItem
             // 
@@ -534,6 +514,7 @@
             this.TabMenu.Controls.Add(this.ConfigCheck);
             this.TabMenu.Controls.Add(this.InvCheck);
             this.TabMenu.Controls.Add(this.DBCheck);
+            this.TabMenu.Controls.Add(this.ConfigTab);
             this.TabMenu.Location = new System.Drawing.Point(0, 24);
             this.TabMenu.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.TabMenu.Name = "TabMenu";
@@ -746,6 +727,34 @@
             this.dbProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.dbProgressBar.TabIndex = 11;
             // 
+            // ConfigTab
+            // 
+            this.ConfigTab.BackColor = System.Drawing.SystemColors.Control;
+            this.ConfigTab.Controls.Add(this.textBox5);
+            this.ConfigTab.Controls.Add(this.nodeCountLabel);
+            this.ConfigTab.Location = new System.Drawing.Point(4, 22);
+            this.ConfigTab.Name = "ConfigTab";
+            this.ConfigTab.Size = new System.Drawing.Size(490, 470);
+            this.ConfigTab.TabIndex = 7;
+            this.ConfigTab.Text = "Config";
+            // 
+            // nodeCountLabel
+            // 
+            this.nodeCountLabel.AutoSize = true;
+            this.nodeCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nodeCountLabel.Location = new System.Drawing.Point(8, 44);
+            this.nodeCountLabel.Name = "nodeCountLabel";
+            this.nodeCountLabel.Size = new System.Drawing.Size(121, 16);
+            this.nodeCountLabel.TabIndex = 0;
+            this.nodeCountLabel.Text = "Approx # Of Nodes";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(136, 44);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 1;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -778,10 +787,17 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.ConfigTab.ResumeLayout(false);
+            this.ConfigTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void restartSvcsButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -790,13 +806,10 @@
         private System.Windows.Forms.ToolTip logLocationToolTip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem coreSettingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem credentialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supportOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enterKeyToolStripMenuItem;
@@ -855,6 +868,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button flushIISButton;
         private System.Windows.Forms.Button archiveLogsButton;
+        private System.Windows.Forms.TabPage ConfigTab;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label nodeCountLabel;
     }
 }
 

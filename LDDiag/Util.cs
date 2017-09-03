@@ -1,5 +1,5 @@
 ﻿using log4net;
-using STDiag;
+using LDDiag;
 using System;
 using System.Xml;
 using Microsoft.Win32;

@@ -12,32 +12,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceProcess;
 using System.Threading;
+using System.Reflection;
 //using STDiag;
 
-namespace STDiag
+namespace LDDiag
 {
     public partial class MainWindow : System.Windows.Forms.Form
     {
-        private static readonly ILog NativeLogger = log4net.LogManager.GetLogger("Native"); //Used to log exceptions and background info
-        private static readonly ILog ManagedLogger = log4net.LogManager.GetLogger("MainWindow"); //Used to log human readable output
+        private static readonly ILog LDLogger = log4net.LogManager.GetLogger("LDDiag");
 
-        private Thread csThread;
-
+        public string version = Application.ProductVersion;
         private bool isCore;
 
         private int totalcheckedBoxes = 0;
         public MainWindow()
         {
+            Logger.Setup();
             InitializeComponent();
             log4net.Config.XmlConfigurator.Configure();
             Debug.WriteLine("Main Window Loaded");
+            this.Text = "LDDiag " + version;
 
-            ManagedLogger.Info("LDDiag loaded. Version is: " + Environment.Version);
+            LDLogger.Info("LDDiag loaded. Version is: " + version);
 
             TabMenu.TabPages.Remove(ConfigCheck);
             TabMenu.TabPages.Remove(InvCheck);
 
             isCore = checkIsCore();
+
 
         }
 
@@ -49,37 +51,7 @@ namespace STDiag
             return false;
         }
 
-        private void restartSvcsButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ServiceController[] scms = ServiceController.GetServices();
-                foreach (ServiceController sc in scms)
-                {
-                    if (sc.DisplayName.Contains("Landesk") || sc.DisplayName.Contains("Managed Planet"))
-                    {
-                        if (sc.Status == ServiceControllerStatus.Running)
-                        {
-                            sc.Stop();
-                            sc.WaitForStatus(ServiceControllerStatus.Stopped);
-                            sc.Start();
-                        }
-                        else
-                        {
-                            if (sc.Status == ServiceControllerStatus.Stopped)
-                            {
-                                sc.Start();
-                            }
-                        }
-                    }
-                }
-            }
 
-            catch (Exception ex)
-            {
-                NativeLogger.Error(ex.Data.ToString());
-            }
-        }
         private void DebugButton_Click(object sender, EventArgs e)
         {
             ServiceController scm;
@@ -97,8 +69,8 @@ namespace STDiag
                     }
                     catch (Exception ex)
                     {
-                        ManagedLogger.Error("Failed to enable Console.exe debug logging");
-                        NativeLogger.Error(ex.Data.ToString());
+                        LDLogger.Error("Failed to enable Console.exe debug logging");
+                        LDLogger.Error(ex.Data.ToString());
                     }
                 }
                 if (inventoryDebugLog.Checked)
@@ -113,8 +85,8 @@ namespace STDiag
                     }
                     catch (Exception ex)
                     {
-                        ManagedLogger.Error("Failed to set registry keys to enable LDInv32.exe debug logging");
-                        NativeLogger.Error(ex.Data.ToString());
+                        LDLogger.Error("Failed to set registry keys to enable LDInv32.exe debug logging");
+                        LDLogger.Error(ex.Data.ToString());
                     }
                     scm = new ServiceController("Landesk Inventory Server");
 
@@ -127,8 +99,8 @@ namespace STDiag
                         }
                         catch (Exception ex)
                         {
-                            ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
-                            NativeLogger.Error(ex.Data.ToString());
+                            LDLogger.Error("Failed to stop service: " + scm.DisplayName);
+                            LDLogger.Error(ex.Data.ToString());
                         }
                         scm.WaitForStatus(ServiceControllerStatus.Stopped);
                         try
@@ -138,8 +110,8 @@ namespace STDiag
                         }
                         catch (Exception ey)
                         {
-                            ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
-                            NativeLogger.Error(ey.Data.ToString());
+                            LDLogger.Error("Failed to start service: " + scm.DisplayName);
+                            LDLogger.Error(ey.Data.ToString());
                         }
                     }
                     else
@@ -171,8 +143,8 @@ namespace STDiag
                         }
                         catch (Exception ex)
                         {
-                            ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
-                            NativeLogger.Error(ex.Data.ToString());
+                            LDLogger.Error("Failed to stop service: " + scm.DisplayName);
+                            LDLogger.Error(ex.Data.ToString());
                         }
                         scm.WaitForStatus(ServiceControllerStatus.Stopped);
                         try
@@ -182,8 +154,8 @@ namespace STDiag
                         }
                         catch (Exception ey)
                         {
-                            ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
-                            NativeLogger.Error(ey.Data.ToString());
+                            LDLogger.Error("Failed to start service: " + scm.DisplayName);
+                            LDLogger.Error(ey.Data.ToString());
                         }
                     }
                     else
@@ -213,8 +185,8 @@ namespace STDiag
                         }
                         catch (Exception ex)
                         {
-                            ManagedLogger.Error("Failed to stop service: " + scm.DisplayName);
-                            NativeLogger.Error(ex.Data.ToString());
+                            LDLogger.Error("Failed to stop service: " + scm.DisplayName);
+                            LDLogger.Error(ex.Data.ToString());
                         }
                         scm.WaitForStatus(ServiceControllerStatus.Stopped);
                         try
@@ -224,8 +196,8 @@ namespace STDiag
                         }
                         catch (Exception ey)
                         {
-                            ManagedLogger.Error("Failed to start service: " + scm.DisplayName);
-                            NativeLogger.Error(ey.Data.ToString());
+                            LDLogger.Error("Failed to start service: " + scm.DisplayName);
+                            LDLogger.Error(ey.Data.ToString());
                         }
                     }
                     else
@@ -349,48 +321,11 @@ namespace STDiag
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NativeLogger.Info("Application shutdown requested.");
+            LDLogger.Info("Application shutdown requested.");
             System.Windows.Forms.Application.Exit();
         }
 
-        private void coreSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            Debug.WriteLine("Core Settings clicked");
-            csThread = new Thread(getCoreSettings);
-            csThread.Start();
-
         }
-
-        public void getCoreSettings()
-        {
-          
-
-            CoreSettings initCoreSettings = new CoreSettings();
-            Application.Run(initCoreSettings);
-           // initCoreSettings.submitButton.Click += initCoreSettings.submitButton_Click;           
-
-        }
-        private void closeCoreSettings(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    string[] coreInfo = initCoreSettings.getSettings();
-
-            //    foreach (string st in coreInfo)
-            //    {
-            //        NativeLogger.Debug(st);
-            //    }
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    ManagedLogger.Error("Error saving core settings: " + ex.Data.ToString());
-            //}
-            Debug.WriteLine("Aborting thread");
-            csThread.Abort();
-        }
-    }
 }
 
 
