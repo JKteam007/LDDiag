@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDDiag", "LDDiag\LDDiag.csproj", "{127C6582-FF2D-4280-AD64-3AD0C2F366DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Crypto", "..\DLL\Binaries\Ethereal Systems\ES.Crypto\ES.Crypto.csproj", "{E28F3B9E-633B-4D4B-A8EE-EC0FFB151271}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Crypto", "..\Binaries\Ethereal Systems\ES.Crypto\ES.Crypto.csproj", "{E28F3B9E-633B-4D4B-A8EE-EC0FFB151271}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Database", "..\DLL\Binaries\Ethereal Systems\ES.Database\ES.Database.csproj", "{02062BDE-81F2-4CA5-9B1F-F4CEDE93393C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Database", "..\Binaries\Ethereal Systems\ES.Database\ES.Database.csproj", "{02062BDE-81F2-4CA5-9B1F-F4CEDE93393C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Http", "..\DLL\Binaries\Ethereal Systems\ES.Http\ES.Http.csproj", "{F1B0D492-25FB-4989-B9E2-D18B3E529B10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Http", "..\Binaries\Ethereal Systems\ES.Http\ES.Http.csproj", "{F1B0D492-25FB-4989-B9E2-D18B3E529B10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDDiag.Util", "..\DLL\Binaries\LDDiag\LDDiag.Util\LDDiag.Util.csproj", "{EE83B268-E867-458E-B107-F799547D519F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDDiag.Util", "..\Binaries\LDDiag\LDDiag.Util\LDDiag.Util.csproj", "{EE83B268-E867-458E-B107-F799547D519F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Win32", "..\DLL\Binaries\Ethereal Systems\ES.Win32\ES.Win32.csproj", "{C8A434BD-605D-49A4-B323-59F7F63A4741}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Win32", "..\Binaries\Ethereal Systems\ES.Win32\ES.Win32.csproj", "{C8A434BD-605D-49A4-B323-59F7F63A4741}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,5 +74,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {607B41B3-D95D-44AD-9D5B-EDB66DA27F23}
 	EndGlobalSection
 EndGlobal
